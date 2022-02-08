@@ -1,22 +1,19 @@
 package model;
 
-import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
 
-    private List<Song> songs;
-    private List<Artist> artists;
-    private List<Release> releases;
+    protected static List<Song> songs = new ArrayList<>();
+    protected static List<Artist> artists = new ArrayList<>();
+    protected static List<Release> releases = new ArrayList<>();
 
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner songScanner = new Scanner(new File("data/songs.csv"));
-        
-        songScanner.useDelimiter(",");
-        while(songScanner.hasNext()) {
-            System.out.println(songScanner.next());
-        }
+    public static void main(String[] args) throws FileNotFoundException{
+        File songFile = new File("./model/src/songs.csv");
+        FileReader fr = new FileReader(songFile);
     }
 }

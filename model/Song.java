@@ -2,13 +2,13 @@ package model;
 
 public class Song {
     private String title;
-    private int guid;
-    private int artistGuid;
+    private String guid;
+    private String artistGuid;
     private String artist;
     private int duration;
     private int rating;
 
-    public Song(String title, int guid, int artistGuid, String artist, int duration) {
+    public Song(String title, String guid, String artistGuid, String artist, int duration) {
         this.title = title;
         this.guid = guid;
         this.artistGuid = artistGuid;
@@ -17,16 +17,21 @@ public class Song {
         this.rating = 0;
     }
 
+    @Override
+    public String toString() {
+        return title + " " + guid;
+    }
+
     public String getArtist() {
         return artist;
     }
-    public int getArtistGuid() {
+    public String getArtistGuid() {
         return artistGuid;
     }
     public int getDuration() {
         return duration;
     }
-    public int getGuid() {
+    public String getGuid() {
         return guid;
     }
     public int getRating() {
@@ -36,4 +41,7 @@ public class Song {
         return title;
     }
 
+    protected void addName(String s) {
+        this.artist = s;
+    }
 }

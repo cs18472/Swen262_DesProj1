@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Release {
     private String title;
-    private int artistGuid;
+    private String artistGuid;
     private String artist;
     private List<Song> songs;
     private int rating;
 
-    public Release (String title, int artistGuid, String artist, List<Song> songs) {
+    public Release (String title, String artistGuid, String artist, List<Song> songs) {
         this.title = title;
         this.artistGuid = artistGuid;
         this.artist = artist;
@@ -28,7 +28,7 @@ public class Release {
     public String getArtist() {
         return artist;
     }
-    public int getArtistGuid() {
+    public String getArtistGuid() {
         return artistGuid;
     }
     public int getRating() {

@@ -31,5 +31,4 @@ public class Artist {
     public String getType() {
         return type;
     }
-
 }
