@@ -1,10 +1,11 @@
 package view;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
-public class CLI{
+public class CLI extends JFrame {
+
+    private Listener key;
 
     public CLI() {
         JFrame frame = new JFrame();
@@ -19,6 +20,7 @@ public class CLI{
         commandLine.setVisible(true);
         commandLine.setLayout(null);
         commandLine.setSize(800, 50);
+        commandLine.addKeyListener( key );
 
         frame.add(commandLine, BorderLayout.SOUTH);
 
