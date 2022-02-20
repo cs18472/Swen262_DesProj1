@@ -1,6 +1,9 @@
 package model;
 
-public class Song {
+/**
+ * Leaf that represents a song.
+ */
+public class Song implements LibraryElement{
     private String title;
     private String guid;
     private String artistGuid;

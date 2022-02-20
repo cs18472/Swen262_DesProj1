@@ -2,7 +2,10 @@ package model;
 
 import java.util.List;
 
-public class Release {
+/**
+ * Composition of an artists songs.
+ */
+public class Release implements LibraryElement{
     private String guid;
     private String title;
     private String artistGuid;

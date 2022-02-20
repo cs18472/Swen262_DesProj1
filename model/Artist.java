@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class Artist {
+public class Artist implements LibraryElement{
     private List<Song> songs;
     private List<Release> releases;
     private String name;
