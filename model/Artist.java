@@ -25,6 +25,11 @@ public class Artist implements LibraryElement{
         return null;
     }
 
+    @Override
+    public String toString() {
+        return name + " " + guid;
+    }
+
     public String getGuid() {
         return guid;
     }
