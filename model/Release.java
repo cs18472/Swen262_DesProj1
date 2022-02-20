@@ -12,10 +12,10 @@ public class Release implements LibraryElement{
     private String artist;
     private String issueDate;
     private String medium;
-    private List<Song> songs;
+    private List<LibraryElement> songs;
     private int rating;
 
-    public Release (String guid,String title, String artistGuid, String artist,String issueDate, String medium, List<Song> songs) {
+    public Release (String guid, String title, String artistGuid, String artist,String issueDate, String medium, List<LibraryElement> songs) {
         this.title = title;
         this.artistGuid = artistGuid;
         this.artist = artist;
@@ -25,15 +25,21 @@ public class Release implements LibraryElement{
         
         int totalNum = 0;
         int totalRating = 0;
-        for(Song s : songs) {
+        for(LibraryElement s : songs) {
             totalNum++;
             totalRating += s.getRating();
         }
 
         if(totalNum == 0 || totalRating == 0) this.rating = 0;
         else this.rating = totalRating/totalNum;
-
     }
+
+    @Override
+    public List<LibraryElement> search() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
     public void addArtist(String name) {
         this.artist = name;
     }
@@ -53,13 +59,15 @@ public class Release implements LibraryElement{
     public String getArtistGuid() {
         return artistGuid;
     }
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
-    public List<Song> getSongs() {
+    public List<LibraryElement> getSongs() {
         return songs;
     }
     public String getTitle() {
         return title;
     }
+    @Override
+    public void addName(String name) {}
 }

@@ -17,10 +17,31 @@ public class Database implements LibraryElement{
      * of songs, artists, and releases in a block
      */
 
-    protected static List<Song> songs = new ArrayList<>();
-    protected static List<Artist> artists = new ArrayList<>();
-    protected static List<Release> releases = new ArrayList<>();
+    protected static List<LibraryElement> songs = new ArrayList<>();
+    protected static List<LibraryElement> artists = new ArrayList<>();
+    protected static List<LibraryElement> releases = new ArrayList<>();
     
+    @Override
+    public List<LibraryElement> search() {
+        return null;
+    }
+
+    public double getRating(){
+        return 0;
+    }
+    @Override
+    public String getGuid() {
+        return null;
+    }
+    @Override
+    public String getArtistGuid() {
+        return null;
+    }
+    @Override
+    public void addName(String name) {}
+    @Override
+    public void addArtist(String name) {}
+
     /**
      * Main method collects data
      * from csv docs and organizes them into
@@ -74,9 +95,9 @@ public class Database implements LibraryElement{
             i++;
             String issueDate = strArr[i];
             i++;
-            List<Song> releaseSongs = new ArrayList<>();
+            List<LibraryElement> releaseSongs = new ArrayList<>();
             for(; i < strArr.length; i++) {
-                for(Song s : songs) if(s.getGuid().equals(strArr[i])) releaseSongs.add(s);
+                for(LibraryElement s : songs) if(s.getGuid().equals(strArr[i])) releaseSongs.add(s);
             }
 
             releases.add(new Release(guid, title, artistGuid, "", issueDate, medium, songs));
@@ -98,19 +119,19 @@ public class Database implements LibraryElement{
             if(strArr.length > 2) type = strArr[2];
             else type = "";
 
-            List<Song> artistSongs = new ArrayList<>();
-            List<Release> artistReleases = new ArrayList<>();
+            List<LibraryElement> artistSongs = new ArrayList<>();
+            List<LibraryElement> artistReleases = new ArrayList<>();
 
-            for(Song song : songs) if(song.getArtistGuid().equals(guid)) {
+            for(LibraryElement song : songs) if(song.getArtistGuid().equals(guid)) {
                 song.addName(name);
                 artistSongs.add(song);
             }
-            for(Release release : releases) if(release.getArtistGuid().equals(guid)) {
+            for(LibraryElement release : releases) if(release.getArtistGuid().equals(guid)) {
                 release.addArtist(name);
                 artistReleases.add(release);
             }
 
-            artists.add(new Artist(artistSongs, artistReleases, name, type));
+            artists.add(new Artist(artistSongs, artistReleases, guid, name, type));
             
         }
         brSongs.close();
