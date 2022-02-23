@@ -1,6 +1,11 @@
 package model;
 
-public class Song {
+import java.util.List;
+
+/**
+ * Leaf that represents a song.
+ */
+public class Song implements LibraryElement{
     private String title;
     private String guid;
     private String artistGuid;
@@ -15,6 +20,12 @@ public class Song {
         this.artist = artist;
         this.duration = duration;
         this.rating = 0;
+    }
+
+    @Override
+    public List<LibraryElement> search() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
@@ -34,14 +45,16 @@ public class Song {
     public String getGuid() {
         return guid;
     }
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
     public String getTitle() {
         return title;
     }
 
-    protected void addName(String s) {
+    public void addName(String s) {
         this.artist = s;
     }
+    @Override
+    public void addArtist(String name) {}
 }

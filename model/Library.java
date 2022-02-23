@@ -1,117 +1,55 @@
 package model;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Library {
+/**
+ * Composition for creating personal librarys
+ */
+public class Library implements LibraryElement{
+    
+    private List<LibraryElement> collection;
 
-    /**
-     * Library class serves to hold the collection
-     * of songs, artists, and releases in a block
-     */
+    public void add(LibraryElement element){
 
-    protected static List<Song> songs = new ArrayList<>();
-    protected static List<Artist> artists = new ArrayList<>();
-    protected static List<Release> releases = new ArrayList<>();
+    }
 
-    /**
-     * Main method collects data
-     * from csv docs and organizes them into
-     * a static library block with buffered readers
-     */
-    public static void main(String[] args) throws IOException{
-        //Songs
-        File songFile = new File("./model/src/songs.csv");
-        FileReader fr = new FileReader(songFile);
-        BufferedReader brSongs = new BufferedReader(fr);
+    public void remove(LibraryElement element){
+        
+    }
 
-        String line;
-        while((line = brSongs.readLine()) != null) {
-            String[] strArr = line.split(",");
-            
-            
-            String guid = strArr[0];
-            String artistGuid = strArr[1];
-            int duration = Integer.parseInt(strArr[2]);
-            String title = "";
-            for(int i = 3; i < strArr.length; i++) title += strArr[i];
+    @Override
+    public List<LibraryElement> search() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-            songs.add(new Song(title, guid, artistGuid, "", duration));
-            
+    @Override
+    public double getRating() {
+        double rating = 0.0;
+        for(LibraryElement e: collection){
+            rating += e.getRating();
         }
-        brSongs.close();
+        return (rating/collection.size());
+    }
 
-        //releases
-        File releaseFile = new File("./model/src/releases.csv");
-        fr = new FileReader(releaseFile);
-        BufferedReader brReleases = new BufferedReader(fr);
-
-        while((line = brReleases.readLine()) != null) {
-            String[] strArr = line.split(",");
-            
-            int i = 0;
-            String guid = strArr[i];
-            i++;
-            String artistGuid = strArr[i];
-            i++;
-            String title;
-            if(strArr[i].contains("\"")) {
-                title = strArr[i] + "," + strArr[i+1];
-                i+=2;
-            } else {
-                title = strArr[i];
-                i++;
-            }
-
-            String medium = strArr[i];
-            i++;
-            String issueDate = strArr[i];
-            i++;
-            List<Song> releaseSongs = new ArrayList<>();
-            for(; i < strArr.length; i++) {
-                for(Song s : songs) if(s.getGuid().equals(strArr[i])) releaseSongs.add(s);
-            }
-
-            releases.add(new Release(guid, title, artistGuid, "", issueDate, medium, songs));
-            i = 0;
-        }
-        brReleases.close();
-
-        //Artists
-        File artistFile = new File("./model/src/artists.csv");
-        fr = new FileReader(artistFile);
-        BufferedReader brArtist = new BufferedReader(fr);
-
-        while((line = brArtist.readLine()) != null) {
-            String[] strArr = line.split(",");
-            
-            String guid = strArr[0];
-            String name = strArr[1];
-            String type;
-            if(strArr.length > 2) type = strArr[2];
-            else type = "";
-
-            List<Song> artistSongs = new ArrayList<>();
-            List<Release> artistReleases = new ArrayList<>();
-
-            for(Song song : songs) if(song.getArtistGuid().equals(guid)) {
-                song.addName(name);
-                artistSongs.add(song);
-            }
-            for(Release release : releases) if(release.getArtistGuid().equals(guid)) {
-                release.addArtist(name);
-                artistReleases.add(release);
-            }
-
+<<<<<<< HEAD
             artists.add(new Artist(artistSongs, artistReleases, name, type));
             
         }
         brArtist.close();
 
+=======
+    @Override
+    public String getGuid() {
+        return null;
     }
+    @Override
+    public String getArtistGuid() {
+        return null;
+>>>>>>> f7c5528fcf91016dcbce55da912846bbfe0da959
+    }
+    @Override
+    public void addName(String name) {}
+    @Override
+    public void addArtist(String name) {}
 }
