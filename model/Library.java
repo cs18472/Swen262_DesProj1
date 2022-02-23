@@ -111,6 +111,7 @@ public class Library {
             artists.add(new Artist(artistSongs, artistReleases, name, type));
             
         }
-        brSongs.close();
+        brArtist.close();
+
     }
 }
