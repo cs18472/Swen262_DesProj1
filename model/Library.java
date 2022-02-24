@@ -32,13 +32,6 @@ public class Library implements LibraryElement{
         return (rating/collection.size());
     }
 
-<<<<<<< HEAD
-            artists.add(new Artist(artistSongs, artistReleases, name, type));
-            
-        }
-        brArtist.close();
-
-=======
     @Override
     public String getGuid() {
         return null;
@@ -46,7 +39,6 @@ public class Library implements LibraryElement{
     @Override
     public String getArtistGuid() {
         return null;
->>>>>>> f7c5528fcf91016dcbce55da912846bbfe0da959
     }
     @Override
     public void addName(String name) {}
