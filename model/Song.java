@@ -48,6 +48,7 @@ public class Song implements LibraryElement{
     public double getRating() {
         return rating;
     }
+    @Override
     public String getTitle() {
         return title;
     }

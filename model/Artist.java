@@ -56,4 +56,10 @@ public class Artist implements LibraryElement{
     public void addName(String name) {}
     @Override
     public void addArtist(String name) {}
+
+    @Override
+    public String getTitle() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

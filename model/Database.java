@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Composition which holds all of the songs, artists, and releases
  */
-public class Database implements LibraryElement{
+public class Database{
   
     /**
      * Database class serves to hold the collection
@@ -18,30 +18,39 @@ public class Database implements LibraryElement{
      */
 
     protected static List<LibraryElement> songs = new ArrayList<>();
-    protected static List<LibraryElement> artists = new ArrayList<>();
     protected static List<LibraryElement> releases = new ArrayList<>();
-    
-    @Override
-    public List<LibraryElement> search() {
-        return null;
+    protected static List<LibraryElement> artists = new ArrayList<>();
+    private DatabaseSorter sorter;
+
+    Database(List<LibraryElement> songs, List<LibraryElement> releases, List<LibraryElement> artists){
+        this.songs = songs;
+        this.releases = artists;
+        this.artists = releases;
+    }
+
+    public void setSorter(DatabaseSorter sorter){
+        this.sorter = sorter;
+    }
+
+    public void sort(int type) {
+        if (type == 1){
+            sorter.doSearch(songs);
+        }
+        else if(type == 2){
+            sorter.doSearch(releases);
+        }
+        else if (type== 3){
+            sorter.doSearch(artists);
+        }
+        else{
+            System.out.println("Error: Incorrect type specified");
+        }
     }
 
     public double getRating(){
         return 0;
     }
-    @Override
-    public String getGuid() {
-        return null;
-    }
-    @Override
-    public String getArtistGuid() {
-        return null;
-    }
-    @Override
-    public void addName(String name) {}
-    @Override
-    public void addArtist(String name) {}
-
+    
     /**
      * Main method collects data
      * from csv docs and organizes them into
@@ -135,5 +144,16 @@ public class Database implements LibraryElement{
             
         }
         brSongs.close();
+
+        //Testing
+        Database database = new Database(songs, releases, artists);
+        database.setSorter(new DBArtistNameSort());
+        for(LibraryElement song : songs){
+            System.out.println(song);
+        }
+        database.sort(1);
+        for(LibraryElement song : songs){
+            System.out.println(song);
+        }
     }
 }
