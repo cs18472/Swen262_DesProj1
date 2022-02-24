@@ -3,8 +3,8 @@ package model;
 import java.util.List;
 
 /**
- * The ElementSearcher class will be the strategy for each searching algorithm.
+ * The ElementSearcher class will be the strategy for each sorting algorithm.
  */
 public interface DatabaseSorter {
-    public void doSearch(List<LibraryElement> elements);
+    public void doSort(List<LibraryElement> elements);
 }

@@ -34,13 +34,13 @@ public class Database{
 
     public void sort(int type) {
         if (type == 1){
-            sorter.doSearch(songs);
+            sorter.doSort(songs);
         }
         else if(type == 2){
-            sorter.doSearch(releases);
+            sorter.doSort(releases);
         }
         else if (type== 3){
-            sorter.doSearch(artists);
+            sorter.doSort(artists);
         }
         else{
             System.out.println("Error: Incorrect type specified");
@@ -147,7 +147,7 @@ public class Database{
 
         //Testing
         Database database = new Database(songs, releases, artists);
-        database.setSorter(new DBArtistNameSort());
+        database.setSorter(new DBSongTitleSort());
         for(LibraryElement song : songs){
             System.out.println(song);
         }
