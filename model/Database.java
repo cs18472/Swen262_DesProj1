@@ -46,10 +46,6 @@ public class Database{
             System.out.println("Error: Incorrect type specified");
         }
     }
-
-    public double getRating(){
-        return 0;
-    }
     
     /**
      * Main method collects data
