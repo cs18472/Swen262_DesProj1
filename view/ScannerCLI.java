@@ -11,24 +11,18 @@ public class ScannerCLI {
     ScannerCLI(){
         
     }
+    public void turnOff(){
+        on = false;
+    }
 
     public void setPage(Page newPage){
         newPage.menu();
         this.page = newPage;
     }
 
-    public String interpretInput(String str){
-        return this.page.interpretInput(str);
+    public void interpretInput(String str){
+        this.page.interpretInput(str);
     }
-    
-    public void quit(){
-        this.page.quit();
-    }
-
-    public void back(){
-        this.page.back();
-    }
-    
 
     public void run(){
         this.setPage(new LandingPage(this));

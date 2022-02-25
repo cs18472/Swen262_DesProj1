@@ -9,9 +9,15 @@ public class LandingPage implements Page {
     }
 
     @Override
-    public String interpretInput(String str) {
+    public void interpretInput(String str) {
         if((str).equals("1")){
             scanner.setPage(new PersonalLibraryOptions(scanner));
+        }
+        else if((str).equals("2")){
+            scanner.setPage(new DatabaseOptions(scanner));
+        }
+        else if((str).equals("q")){
+            quit();
         }
         
         else{
@@ -21,19 +27,16 @@ public class LandingPage implements Page {
 
             System.out.println("------------------------------------------------");
         }
-        return null;
     }
 
     @Override
-    public String quit() {
-        // TODO Auto-generated method stub
-        return null;
+    public void quit() {
+        
     }
 
     @Override
-    public String back() {
+    public void back() {
         // TODO Auto-generated method stub
-        return null;
     }
 
     @Override

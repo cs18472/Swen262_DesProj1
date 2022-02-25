@@ -10,9 +10,8 @@ public class PersonalLibraryOptions implements Page {
     }
 
     @Override
-    public String interpretInput(String str) {
+    public void interpretInput(String str) {
         // TODO Auto-generated method stub
-        return null;
     }
 
     @Override
@@ -28,15 +27,15 @@ public class PersonalLibraryOptions implements Page {
     }
 
     @Override
-    public String quit() {
+    public void quit() {
         // TODO Auto-generated method stub
-        return null;
+        
     }
 
     @Override
-    public String back() {
+    public void back() {
         // TODO Auto-generated method stub
-        return null;
+        
     }
     
 }
