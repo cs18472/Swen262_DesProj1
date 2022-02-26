@@ -8,7 +8,7 @@ import java.util.List;
 public class DBSongTitleSearch implements DatabaseSearcher{
 
     @Override
-    public void doSearch(List<LibraryElement> elements, String input) {
+    public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
         int n = elements.size();
   
         // One by one move boundary of unsorted subarray
@@ -28,5 +28,6 @@ public class DBSongTitleSearch implements DatabaseSearcher{
             elements.set(min_idx, elements.get(i));
             elements.set(i, temp);
         }  
+        return null;
     }
 }
