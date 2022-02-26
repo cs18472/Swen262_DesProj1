@@ -10,14 +10,11 @@ public class DBTitleSearch implements DatabaseSearcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
-        int n = elements.size();
         List<LibraryElement> result = new ArrayList<>();
-        LibraryElement element;
         String title;
         String lowered = input.toLowerCase();
         // One by one move boundary of unsorted subarray
-        for (int i = 0; i < n-1; i++) {
-            element = elements.get(i);
+        for (LibraryElement element: elements) {;
             title = element.getTitle().toLowerCase();
             if(title.contains(lowered)) result.add(element);
         }

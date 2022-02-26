@@ -145,7 +145,7 @@ public class Database{
         //Testing
         Database database = new Database(songs, releases, artists);
         database.setSearcher(new DBTitleSearch());
-        List<LibraryElement> result = database.search(2, "Of");
+        List<LibraryElement> result = database.search(1, "Of");
         for(LibraryElement element : result){
             System.out.println(element);
         }
