@@ -24,8 +24,8 @@ public class Database{
 
     Database(List<LibraryElement> songs, List<LibraryElement> releases, List<LibraryElement> artists){
         this.songs = songs;
-        this.releases = artists;
-        this.artists = releases;
+        this.releases = releases;
+        this.artists = artists;
     }
 
     public void setSorter(DatabaseSorter sorter){
@@ -151,5 +151,16 @@ public class Database{
         for(LibraryElement song : songs){
             System.out.println(song);
         }
+
+        Database database2 = new Database(songs, releases, artists);
+        database.setSorter(new DBSongTitleSort());
+        for(LibraryElement song : songs){
+            System.out.println(song);
+        }
+        database2.sort(2);
+        for(LibraryElement Artist : artists){
+            System.out.println(Artist);
+        }
+
     }
 }
