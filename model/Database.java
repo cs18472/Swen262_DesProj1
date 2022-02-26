@@ -153,11 +153,11 @@ public class Database{
         }
 
         Database database2 = new Database(songs, releases, artists);
-        database.setSorter(new DBSongTitleSort());
+        database.setSearcher(new DBSongTitleSearch());
         for(LibraryElement song : songs){
             System.out.println(song);
         }
-        database2.sort(2);
+        database2.search(2, "A");
         for(LibraryElement Artist : artists){
             System.out.println(Artist);
         }
