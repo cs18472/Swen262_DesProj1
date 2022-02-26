@@ -2,10 +2,10 @@ package model;
 
 import java.util.List;
 
-public class DBReleaseTitleSort implements DatabaseSorter{
+public class DBReleaseTitleSearch implements DatabaseSearcher{
 
     @Override
-    public void doSort(List<LibraryElement> elements) {
+    public void doSearch(List<LibraryElement> elements, String input) {
         int n = elements.size();
   
         // One by one move boundary of unsorted subarray

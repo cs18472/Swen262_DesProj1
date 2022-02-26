@@ -20,7 +20,7 @@ public class Database{
     protected static List<LibraryElement> songs = new ArrayList<>();
     protected static List<LibraryElement> releases = new ArrayList<>();
     protected static List<LibraryElement> artists = new ArrayList<>();
-    private DatabaseSorter sorter;
+    private DatabaseSearcher searcher;
 
     Database(List<LibraryElement> songs, List<LibraryElement> releases, List<LibraryElement> artists){
         this.songs = songs;
@@ -28,19 +28,19 @@ public class Database{
         this.artists = artists;
     }
 
-    public void setSorter(DatabaseSorter sorter){
-        this.sorter = sorter;
+    public void setSearcher(DatabaseSearcher search){
+        this.searcher = searcher;
     }
 
-    public void sort(int type) {
+    public void search(int type, String input) {
         if (type == 1){
-            sorter.doSort(songs);
+            searcher.doSearch(songs, input);
         }
         else if(type == 2){
-            sorter.doSort(releases);
+            searcher.doSearch(releases, input);
         }
         else if (type== 3){
-            sorter.doSort(artists);
+            searcher.doSearch(artists, input);
         }
         else{
             System.out.println("Error: Incorrect type specified");
@@ -143,11 +143,11 @@ public class Database{
 
         //Testing
         Database database = new Database(songs, releases, artists);
-        database.setSorter(new DBReleaseTitleSort());
+        database.setSearcher(new DBReleaseTitleSearch());
         for(LibraryElement release : releases){
             System.out.println(release);
         }
-        database.sort(2);
+        database.search(2,"A");
         for(LibraryElement release : releases){
             System.out.println(release);
         }

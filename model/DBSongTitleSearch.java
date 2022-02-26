@@ -5,10 +5,10 @@ import java.util.List;
 /**
  * The DBArtistNameSort is a ConcreteStrategy to sort the names 
  */
-public class DBSongTitleSort implements DatabaseSorter{
+public class DBSongTitleSearch implements DatabaseSearcher{
 
     @Override
-    public void doSort(List<LibraryElement> elements) {
+    public void doSearch(List<LibraryElement> elements, String input) {
         int n = elements.size();
   
         // One by one move boundary of unsorted subarray
