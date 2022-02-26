@@ -143,13 +143,13 @@ public class Database{
 
         //Testing
         Database database = new Database(songs, releases, artists);
-        database.setSorter(new DBSongTitleSort());
-        for(LibraryElement song : songs){
-            System.out.println(song);
+        database.setSorter(new DBReleaseTitleSort());
+        for(LibraryElement release : releases){
+            System.out.println(release);
         }
-        database.sort(1);
-        for(LibraryElement song : songs){
-            System.out.println(song);
+        database.sort(2);
+        for(LibraryElement release : releases){
+            System.out.println(release);
         }
 
         Database database2 = new Database(songs, releases, artists);
