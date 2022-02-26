@@ -28,22 +28,23 @@ public class Database{
         this.artists = artists;
     }
 
-    public void setSearcher(DatabaseSearcher search){
+    public void setSearcher(DatabaseSearcher searcher){
         this.searcher = searcher;
     }
 
-    public void search(int type, String input) {
+    public List<LibraryElement> search(int type, String input) {
         if (type == 1){
-            searcher.doSearch(songs, input);
+            return searcher.doSearch(songs, input);
         }
         else if(type == 2){
-            searcher.doSearch(releases, input);
+            return searcher.doSearch(releases, input);
         }
         else if (type== 3){
-            searcher.doSearch(artists, input);
+            return searcher.doSearch(artists, input);
         }
         else{
             System.out.println("Error: Incorrect type specified");
+            return null;
         }
     }
     
@@ -143,23 +144,10 @@ public class Database{
 
         //Testing
         Database database = new Database(songs, releases, artists);
-        database.setSearcher(new DBReleaseTitleSearch());
-        for(LibraryElement release : releases){
-            System.out.println(release);
-        }
-        database.search(2,"A");
-        for(LibraryElement release : releases){
-            System.out.println(release);
-        }
-
-        Database database2 = new Database(songs, releases, artists);
-        database.setSearcher(new DBSongTitleSearch());
-        for(LibraryElement song : songs){
-            System.out.println(song);
-        }
-        database2.search(2, "A");
-        for(LibraryElement Artist : artists){
-            System.out.println(Artist);
+        database.setSearcher(new DBTitleSearch());
+        List<LibraryElement> result = database.search(2, "Of");
+        for(LibraryElement element : result){
+            System.out.println(element);
         }
 
     }

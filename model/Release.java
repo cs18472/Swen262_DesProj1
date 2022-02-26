@@ -16,6 +16,7 @@ public class Release implements LibraryElement{
     private int rating;
 
     public Release (String guid, String title, String artistGuid, String artist, String issueDate, String medium, List<LibraryElement> songs) {
+        this.guid = guid;
         this.title = title;
         this.artistGuid = artistGuid;
         this.artist = artist;
