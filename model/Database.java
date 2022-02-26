@@ -151,5 +151,16 @@ public class Database{
         for(LibraryElement release : releases){
             System.out.println(release);
         }
+
+        Database database2 = new Database(songs, releases, artists);
+        database.setSorter(new DBSongTitleSort());
+        for(LibraryElement song : songs){
+            System.out.println(song);
+        }
+        database2.sort(2);
+        for(LibraryElement Artist : artists){
+            System.out.println(Artist);
+        }
+
     }
 }
