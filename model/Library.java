@@ -68,4 +68,10 @@ public class Library implements LibraryElement{
         // TODO Auto-generated method stub
         return null;
     }
+
+    @Override
+    public int getDuration() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }
