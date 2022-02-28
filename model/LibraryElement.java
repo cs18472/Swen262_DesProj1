@@ -13,4 +13,6 @@ public interface LibraryElement {
     public String getTitle();
     public void addName(String name);
     public void addArtist(String name);
+    public List<LibraryElement> getSongs();
+    public String getArtist();
 }

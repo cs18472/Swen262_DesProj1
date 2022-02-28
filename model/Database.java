@@ -32,6 +32,7 @@ public class Database{
         this.searcher = searcher;
     }
 
+
     public List<LibraryElement> search(int type, String input) {
         if (type == 1){
             return searcher.doSearch(songs, input);
@@ -144,8 +145,8 @@ public class Database{
 
         //Testing
         Database database = new Database(songs, releases, artists);
-        database.setSearcher(new DBTitleSearch());
-        List<LibraryElement> result = database.search(1, "Of");
+        database.setSearcher(new DBReleaseArtistGUIDSearch());
+        List<LibraryElement> result = database.search(2, "328d146c");
         for(LibraryElement element : result){
             System.out.println(element);
         }

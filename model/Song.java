@@ -58,4 +58,10 @@ public class Song implements LibraryElement{
     }
     @Override
     public void addArtist(String name) {}
+
+    @Override
+    public List<LibraryElement> getSongs() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

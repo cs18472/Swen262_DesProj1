@@ -50,4 +50,16 @@ public class Library implements LibraryElement{
         // TODO Auto-generated method stub
         return null;
     }
+
+    @Override
+    public List<LibraryElement> getSongs() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getArtist() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

@@ -14,7 +14,7 @@ public class DBTitleSearch implements DatabaseSearcher{
         String title;
         String lowered = input.toLowerCase();
         // One by one move boundary of unsorted subarray
-        for (LibraryElement element: elements) {;
+        for (LibraryElement element: elements) {
             title = element.getTitle().toLowerCase();
             if(title.contains(lowered)) result.add(element);
         }
