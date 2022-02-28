@@ -104,10 +104,12 @@ public class Database{
             i++;
             List<LibraryElement> releaseSongs = new ArrayList<>();
             for(; i < strArr.length; i++) {
-                for(LibraryElement s : songs) if(s.getGuid().equals(strArr[i])) releaseSongs.add(s);
+                for(LibraryElement s : songs){
+                    if(s.getGuid().equals(strArr[i])) releaseSongs.add(s);
+                }
             }
 
-            releases.add(new Release(guid, title, artistGuid, "", issueDate, medium, songs));
+            releases.add(new Release(guid, title, artistGuid, "", issueDate, medium, releaseSongs));
             i = 0;
         }
         brReleases.close();
@@ -145,11 +147,10 @@ public class Database{
 
         //Testing (1 is songs, 2 is releases, 3 is artists)
         Database database = new Database(songs, releases, artists);
-        database.setSearcher(new DBArtistNameSearch());
-        List<LibraryElement> result = database.search(3, "monster");
+        database.setSearcher(new DBReleaseSongNameSearch());
+        List<LibraryElement> result = database.search(2, "Now");
         for(LibraryElement element : result){
             System.out.println(element);
         }
-
     }
 }

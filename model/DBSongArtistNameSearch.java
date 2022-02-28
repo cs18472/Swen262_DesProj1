@@ -1,13 +1,22 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DBSongArtistNameSearch implements DatabaseSearcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
-        // TODO Auto-generated method stub
-        return null;
+        List<LibraryElement> result = new ArrayList<>();
+        String name;
+        String lowered = input.toLowerCase();
+        // One by one move boundary of unsorted subarray
+        for (LibraryElement element: elements) {
+            name = element.getArtist().toLowerCase();
+            if(name.contains(lowered)) result.add(element);
+        }
+        if(result.size() == 0) return null;
+        return result;
     }
     
 }

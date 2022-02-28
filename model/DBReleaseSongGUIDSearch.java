@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DOESN'T WORK, PRINTS ALL RELEASES FOR SOME REASEON
+ * This is a search strategy that finds releases based on song guid.
  */
 public class DBReleaseSongGUIDSearch implements DatabaseSearcher{
     @Override
