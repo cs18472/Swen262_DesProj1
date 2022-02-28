@@ -76,4 +76,10 @@ public class Release implements LibraryElement{
     }
     @Override
     public void addName(String name) {}
+
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

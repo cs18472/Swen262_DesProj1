@@ -143,10 +143,10 @@ public class Database{
         }
         brSongs.close();
 
-        //Testing
+        //Testing (1 is songs, 2 is releases, 3 is artists)
         Database database = new Database(songs, releases, artists);
-        database.setSearcher(new DBReleaseArtistGUIDSearch());
-        List<LibraryElement> result = database.search(2, "328d146c");
+        database.setSearcher(new DBArtistNameSearch());
+        List<LibraryElement> result = database.search(3, "monster");
         for(LibraryElement element : result){
             System.out.println(element);
         }

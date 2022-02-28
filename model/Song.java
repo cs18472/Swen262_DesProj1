@@ -64,4 +64,10 @@ public class Song implements LibraryElement{
         // TODO Auto-generated method stub
         return null;
     }
+
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

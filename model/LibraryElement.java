@@ -15,4 +15,5 @@ public interface LibraryElement {
     public void addArtist(String name);
     public List<LibraryElement> getSongs();
     public String getArtist();
+    public String getName();
 }
