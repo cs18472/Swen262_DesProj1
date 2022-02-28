@@ -112,6 +112,7 @@ public class Database{
             releases.add(new Release(guid, title, artistGuid, "", issueDate, medium, releaseSongs));
             i = 0;
         }
+        
         brReleases.close();
 
         //Artists
@@ -145,12 +146,14 @@ public class Database{
         }
         brSongs.close();
 
-        //Testing (1 is songs, 2 is releases, 3 is artists)
+        // Testing (1 is songs, 2 is releases, 3 is artists)
         Database database = new Database(songs, releases, artists);
-        database.setSearcher(new DBSongLessSearch());
-        List<LibraryElement> result = database.search(1, "1");
+        database.setSearcher(new DBReleaseSongNameSearch());
+        List<LibraryElement> result = database.search(2, "li");
         for(LibraryElement element : result){
             System.out.println(element);
         }
+
+
     }
 }
