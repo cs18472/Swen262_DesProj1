@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This will create a search strategy for finding artists by their name.
+ */
 public class DBArtistNameSearch implements DatabaseSearcher{
 
     @Override

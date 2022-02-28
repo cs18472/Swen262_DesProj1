@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is a search strategy for finding songs greater than a given duration.
+ */
 public class DBSongGreaterSearch implements DatabaseSearcher{
 
     @Override
