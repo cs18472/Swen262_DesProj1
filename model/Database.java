@@ -148,8 +148,8 @@ public class Database{
 
         // Testing (1 is songs, 2 is releases, 3 is artists)
         Database database = new Database(songs, releases, artists);
-        database.setSearcher(new DBReleaseSongNameSearch());
-        List<LibraryElement> result = database.search(2, "li");
+        database.setSearcher(new DBReleaseDateSearch());
+        List<LibraryElement> result = database.search(2, "22");
         for(LibraryElement element : result){
             System.out.println(element);
         }

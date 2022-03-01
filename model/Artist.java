@@ -74,4 +74,10 @@ public class Artist implements LibraryElement{
         // TODO Auto-generated method stub
         return 0;
     }
+
+    @Override
+    public String getIssueDate() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

@@ -70,4 +70,10 @@ public class Song implements LibraryElement{
         // TODO Auto-generated method stub
         return null;
     }
+
+    @Override
+    public String getIssueDate() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
