@@ -31,7 +31,7 @@ public class Library implements LibraryElement{
         }
         return (rating/collection.size());
     }
-    
+  
     @Override
     public String getGuid() {
         return null;
