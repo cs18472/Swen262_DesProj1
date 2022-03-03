@@ -48,6 +48,7 @@ public class Song implements LibraryElement{
     public double getRating() {
         return rating;
     }
+    @Override
     public String getTitle() {
         return title;
     }
@@ -57,4 +58,22 @@ public class Song implements LibraryElement{
     }
     @Override
     public void addArtist(String name) {}
+
+    @Override
+    public List<LibraryElement> getSongs() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getIssueDate() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

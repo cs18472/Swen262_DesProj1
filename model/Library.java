@@ -31,7 +31,7 @@ public class Library implements LibraryElement{
         }
         return (rating/collection.size());
     }
-
+  
     @Override
     public String getGuid() {
         return null;
@@ -44,4 +44,40 @@ public class Library implements LibraryElement{
     public void addName(String name) {}
     @Override
     public void addArtist(String name) {}
+
+    @Override
+    public String getTitle() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<LibraryElement> getSongs() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getArtist() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public int getDuration() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public String getIssueDate() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

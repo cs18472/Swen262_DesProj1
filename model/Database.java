@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Composition which holds all of the songs, artists, and releases
  */
-public class Database implements LibraryElement{
+public class Database{
   
     /**
      * Database class serves to hold the collection
@@ -18,30 +18,37 @@ public class Database implements LibraryElement{
      */
 
     protected static List<LibraryElement> songs = new ArrayList<>();
-    protected static List<LibraryElement> artists = new ArrayList<>();
     protected static List<LibraryElement> releases = new ArrayList<>();
+    protected static List<LibraryElement> artists = new ArrayList<>();
+    private DatabaseSearcher searcher;
+
+    Database(List<LibraryElement> songs, List<LibraryElement> releases, List<LibraryElement> artists){
+        this.songs = songs;
+        this.releases = releases;
+        this.artists = artists;
+    }
+
+    public void setSearcher(DatabaseSearcher searcher){
+        this.searcher = searcher;
+    }
+
+
+    public List<LibraryElement> search(int type, String input) {
+        if (type == 1){
+            return searcher.doSearch(songs, input);
+        }
+        else if(type == 2){
+            return searcher.doSearch(releases, input);
+        }
+        else if (type== 3){
+            return searcher.doSearch(artists, input);
+        }
+        else{
+            System.out.println("Error: Incorrect type specified");
+            return null;
+        }
+    }
     
-    @Override
-    public List<LibraryElement> search() {
-        return null;
-    }
-
-    public double getRating(){
-        return 0;
-    }
-    @Override
-    public String getGuid() {
-        return null;
-    }
-    @Override
-    public String getArtistGuid() {
-        return null;
-    }
-    @Override
-    public void addName(String name) {}
-    @Override
-    public void addArtist(String name) {}
-
     /**
      * Main method collects data
      * from csv docs and organizes them into
@@ -97,12 +104,15 @@ public class Database implements LibraryElement{
             i++;
             List<LibraryElement> releaseSongs = new ArrayList<>();
             for(; i < strArr.length; i++) {
-                for(LibraryElement s : songs) if(s.getGuid().equals(strArr[i])) releaseSongs.add(s);
+                for(LibraryElement s : songs){
+                    if(s.getGuid().equals(strArr[i])) releaseSongs.add(s);
+                }
             }
 
-            releases.add(new Release(guid, title, artistGuid, "", issueDate, medium, songs));
+            releases.add(new Release(guid, title, artistGuid, "", issueDate, medium, releaseSongs));
             i = 0;
         }
+        
         brReleases.close();
 
         //Artists
@@ -135,5 +145,15 @@ public class Database implements LibraryElement{
             
         }
         brSongs.close();
+
+        // Testing (1 is songs, 2 is releases, 3 is artists)
+        Database database = new Database(songs, releases, artists);
+        database.setSearcher(new DBReleaseDateSearch());
+        List<LibraryElement> result = database.search(2, "22");
+        for(LibraryElement element : result){
+            System.out.println(element);
+        }
+
+
     }
 }

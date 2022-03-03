@@ -16,6 +16,7 @@ public class Release implements LibraryElement{
     private int rating;
 
     public Release (String guid, String title, String artistGuid, String artist, String issueDate, String medium, List<LibraryElement> songs) {
+        this.guid = guid;
         this.title = title;
         this.artistGuid = artistGuid;
         this.artist = artist;
@@ -75,4 +76,16 @@ public class Release implements LibraryElement{
     }
     @Override
     public void addName(String name) {}
+
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public int getDuration() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }
