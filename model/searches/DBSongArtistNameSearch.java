@@ -1,22 +1,23 @@
-package model;
+package model.searches;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.*;
 
 /**
- * This is a search strategy for finding songs greater than a given duration.
+ * This is a search strategy for finding songs by artists names.
  */
-public class DBSongGreaterSearch implements DatabaseSearcher{
+public class DBSongArtistNameSearch implements DatabaseSearcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
         List<LibraryElement> result = new ArrayList<>();
-        int duration;
-        int given = Integer.parseInt(input);
+        String name;
+        String lowered = input.toLowerCase();
         // One by one move boundary of unsorted subarray
         for (LibraryElement element: elements) {
-            duration = element.getDuration();
-            if(duration >= given) result.add(element);
+            name = element.getArtist().toLowerCase();
+            if(name.contains(lowered)) result.add(element);
         }
         if(result.size() == 0) return null;
         return result;

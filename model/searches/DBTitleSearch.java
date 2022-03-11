@@ -1,7 +1,8 @@
-package model;
+package model.searches;
 
 import java.util.List;
 import java.util.ArrayList;
+import model.*;
 
 /**
  * This concrete search strategy will find either song's or release's titles that contain a certain input.

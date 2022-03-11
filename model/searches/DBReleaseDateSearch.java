@@ -1,7 +1,8 @@
-package model;
+package model.searches;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.*;
 
 public class DBReleaseDateSearch implements DatabaseSearcher{
 

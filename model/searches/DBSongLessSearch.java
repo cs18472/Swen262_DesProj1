@@ -1,22 +1,23 @@
-package model;
+package model.searches;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.*;
 
 /**
- * This search strategy will find the releases with the artists name.
+ * This is a search strategy for finding songs less than a given duration.
  */
-public class DBReleaseArtistNameSearch implements DatabaseSearcher{
+public class DBSongLessSearch implements DatabaseSearcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
         List<LibraryElement> result = new ArrayList<>();
-        String title;
-        String lowered = input.toLowerCase();
+        int duration;
+        int given = Integer.parseInt(input);
         // One by one move boundary of unsorted subarray
         for (LibraryElement element: elements) {
-            title = element.getArtist().toLowerCase();
-            if(title.contains(lowered)) result.add(element);
+            duration = element.getDuration();
+            if(duration <= given) result.add(element);
         }
         if(result.size() == 0) return null;
         return result;

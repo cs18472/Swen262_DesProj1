@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.searches.*;
 
 /**
  * Composition which holds all of the songs, artists, and releases

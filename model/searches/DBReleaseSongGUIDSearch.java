@@ -1,7 +1,8 @@
-package model;
+package model.searches;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.*;
 
 /**
  * This is a search strategy that finds releases based on song guid.

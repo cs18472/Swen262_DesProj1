@@ -1,12 +1,8 @@
-package model;
+package model.searches;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import javax.lang.model.element.Element;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.TitlePaneLayout;
+import model.*;
 
 /**
 This is  asearch pattern that provides releases based on name 
