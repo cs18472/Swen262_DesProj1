@@ -10,6 +10,12 @@ public interface LibraryElement {
     public double getRating();
     public String getGuid();
     public String getArtistGuid();
+    public String getIssueDate();
+    public String getTitle();
     public void addName(String name);
     public void addArtist(String name);
+    public List<LibraryElement> getSongs();
+    public String getArtist();
+    public String getName();
+    public int getDuration();
 }

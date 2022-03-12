@@ -25,6 +25,11 @@ public class Artist implements LibraryElement{
         return null;
     }
 
+    @Override
+    public String toString() {
+        return name + " " + guid;
+    }
+
     public String getGuid() {
         return guid;
     }
@@ -51,4 +56,28 @@ public class Artist implements LibraryElement{
     public void addName(String name) {}
     @Override
     public void addArtist(String name) {}
+
+    @Override
+    public String getTitle() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getArtist() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public int getDuration() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public String getIssueDate() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
