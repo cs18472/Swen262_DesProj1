@@ -11,7 +11,7 @@ import model.searches.*;
 /**
  * Composition which holds all of the songs, artists, and releases
  */
-public class Database{
+public final class Database{
   
     /**
      * Database class serves to hold the collection
@@ -21,20 +21,20 @@ public class Database{
     protected static List<LibraryElement> songs = new ArrayList<>();
     protected static List<LibraryElement> releases = new ArrayList<>();
     protected static List<LibraryElement> artists = new ArrayList<>();
-    private DatabaseSearcher searcher;
+    //private DatabaseSearcher searcher;
 
-    Database(List<LibraryElement> songs, List<LibraryElement> releases, List<LibraryElement> artists){
+    private Database(List<LibraryElement> songs, List<LibraryElement> releases, List<LibraryElement> artists){
         this.songs = songs;
         this.releases = releases;
         this.artists = artists;
     }
 
-    public void setSearcher(DatabaseSearcher searcher){
-        this.searcher = searcher;
-    }
+    //public void setSearcher(DatabaseSearcher searcher){
+    //    this.searcher = searcher;
+    //}
 
 
-    public List<LibraryElement> search(int type, String input) {
+    public static List<LibraryElement> search(int type, String input, DatabaseSearcher searcher) {
         if (type == 1){
             return searcher.doSearch(songs, input);
         }
@@ -148,9 +148,7 @@ public class Database{
         brSongs.close();
 
         // Testing (1 is songs, 2 is releases, 3 is artists)
-        Database database = new Database(songs, releases, artists);
-        database.setSearcher(new DBReleaseDateSearch());
-        List<LibraryElement> result = database.search(2, "22");
+        List<LibraryElement> result = Database.search(2, "22",new DBReleaseDateSearch());
         for(LibraryElement element : result){
             System.out.println(element);
         }
