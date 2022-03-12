@@ -11,7 +11,7 @@ public class DatabaseArtistSearchPage extends Page {
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the name of the artistyou want to search for.");
+        System.out.println("Please enter the name of the artist you want to search for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");

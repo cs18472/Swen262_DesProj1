@@ -21,16 +21,6 @@ public class DatabaseOptions extends Page {
     }
 
     @Override
-    public void quit() {
-        scanner.setPage(new LandingPage(scanner));
-    }
-
-    @Override
-    public void back() {
-        scanner.setPage(new LandingPage(scanner));
-    }
-
-    @Override
     public void interpretInput(String str) {
         if (checkQuit(str)){
             if((str).equals("1")){
@@ -46,6 +36,17 @@ public class DatabaseOptions extends Page {
                 error();
             }
         }
+    }
+
+    
+    @Override
+    public void quit() {
+        scanner.setPage(new LandingPage(scanner));
+    }
+
+    @Override
+    public void back() {
+        scanner.setPage(new LandingPage(scanner));
     }
     
 }
