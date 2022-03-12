@@ -14,7 +14,7 @@ public class PersonalLibraryOptions extends Page {
     public void menu() {
         System.out.println("------------------------------------------------");
         System.out.println("Enter '1' to enter the Personal Library Search.");
-        System.out.println("Enter '2' to enter the Personal Library Search.");
+        System.out.println("Enter '2' to add to your Personal Library.");
         System.out.println("Enter '3' to remove from your Personal Library.");
         System.out.println("Enter 'B' to return to the previous page.");
         System.out.println("Enter 'Q' to return to the landing page.");
@@ -26,13 +26,13 @@ public class PersonalLibraryOptions extends Page {
     public void interpretInput(String str) {
         if (checkQuit(str)){
             if((str).equals("1")){
-                scanner.setPage(new DatabaseSongSearchPage(scanner));
+                scanner.setPage(new PLSongSearchPage(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new DatabaseArtistSearchPage(scanner));
+                scanner.setPage(new PLArtistSearchPage(scanner));
             }
             else if ((str).equals("3")){
-                scanner.setPage(new DatabaseReleaseSearchPage(scanner));
+                scanner.setPage(new PLReleaseSearchPage(scanner));
             }        
             else{
                 error();
