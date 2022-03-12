@@ -15,7 +15,8 @@ public class Release implements LibraryElement{
     private List<LibraryElement> songs;
     private int rating;
 
-    public Release (String guid, String title, String artistGuid, String artist,String issueDate, String medium, List<LibraryElement> songs) {
+    public Release (String guid, String title, String artistGuid, String artist, String issueDate, String medium, List<LibraryElement> songs) {
+        this.guid = guid;
         this.title = title;
         this.artistGuid = artistGuid;
         this.artist = artist;
@@ -38,6 +39,11 @@ public class Release implements LibraryElement{
     public List<LibraryElement> search() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return title + " " + guid + " Artist: " + artist;
     }
 
     public void addArtist(String name) {
@@ -70,4 +76,16 @@ public class Release implements LibraryElement{
     }
     @Override
     public void addName(String name) {}
+
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public int getDuration() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }
