@@ -1,19 +1,15 @@
 package view;
 
 
-public class PersonalLibraryOptions implements Page {
+public class PersonalLibraryOptions extends Page {
 
     private final ScannerCLI scanner;
-
+    
     PersonalLibraryOptions(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
-    @Override
-    public void interpretInput(String str) {
-        // TODO Auto-generated method stub
-    }
-
+    
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
@@ -24,6 +20,24 @@ public class PersonalLibraryOptions implements Page {
         System.out.println("Enter 'Q' to return to the landing page.");
         System.out.println("------------------------------------------------");
         
+    }
+
+    @Override
+    public void interpretInput(String str) {
+        if (checkQuit(str)){
+            if((str).equals("1")){
+                scanner.setPage(new DatabaseSongSearchPage(scanner));
+            }
+            else if((str).equals("2")){
+                scanner.setPage(new DatabaseArtistSearchPage(scanner));
+            }
+            else if ((str).equals("3")){
+                scanner.setPage(new DatabaseReleaseSearchPage(scanner));
+            }        
+            else{
+                error();
+            }
+        }
     }
 
     @Override

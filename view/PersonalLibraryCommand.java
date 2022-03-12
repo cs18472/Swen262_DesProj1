@@ -1,6 +1,6 @@
 package view;
 
 //Command Interface for the PrivateLibraryCommands
-public interface PrivateLibraryCommand {
+public interface PersonalLibraryCommand {
     public void execute();
 }

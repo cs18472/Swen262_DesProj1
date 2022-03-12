@@ -2,7 +2,7 @@ package view;
 
 
 //This method will call the searcher to execute a search of the private library.
-public class PrivateLibrarySearch implements PrivateLibraryCommand {
+public class PersonalLibrarySearch implements PersonalLibraryCommand {
 
     @Override
     public void execute() {

@@ -1,6 +1,6 @@
 package view;
 
-public class DatabaseOptions implements Page {
+public class DatabaseOptions extends Page {
 
     private final ScannerCLI scanner;
 
@@ -22,34 +22,29 @@ public class DatabaseOptions implements Page {
 
     @Override
     public void quit() {
-        // TODO Auto-generated method stub
+        scanner.setPage(new LandingPage(scanner));
     }
 
     @Override
     public void back() {
-        // TODO Auto-generated method stub
+        scanner.setPage(new LandingPage(scanner));
     }
 
     @Override
     public void interpretInput(String str) {
-        if((str).equals("1")){
-            System.out.println("Enter the song name.");
-            //call again
-            //databaseSearch(songName);
-        }
-        else if((str).equals("2")){
-            
-        }
-        else if((str).equals("q")){
-            quit();
-        }
-        
-        else{
-            System.out.println("------------------------------------------------");
-
-            System.out.println("ERROR: Please enter a valid menu option.");
-
-            System.out.println("------------------------------------------------");
+        if (checkQuit(str)){
+            if((str).equals("1")){
+                scanner.setPage(new DatabaseSongSearchPage(scanner));
+            }
+            else if((str).equals("2")){
+                scanner.setPage(new DatabaseArtistSearchPage(scanner));
+            }
+            else if ((str).equals("3")){
+                scanner.setPage(new DatabaseReleaseSearchPage(scanner));
+            }        
+            else{
+                error();
+            }
         }
     }
     
