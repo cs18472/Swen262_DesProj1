@@ -1,10 +1,9 @@
 package view;
 
-public class DatabaseOptions extends Page {
-
+public class PLSearchDirectory extends Page {
     private final ScannerCLI scanner;
 
-    DatabaseOptions(ScannerCLI scanner){
+    PLSearchDirectory(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -24,13 +23,13 @@ public class DatabaseOptions extends Page {
     public void interpretInput(String str) {
         if (checkQuit(str)){
             if((str).equals("1")){
-                scanner.setPage(new DatabaseSongSearchPage(scanner));
+                scanner.setPage(new PLSongSearchPage(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new DatabaseArtistSearchPage(scanner));
+                scanner.setPage(new PLArtistSearchPage(scanner));
             }
             else if ((str).equals("3")){
-                scanner.setPage(new DatabaseReleaseSearchPage(scanner));
+                scanner.setPage(new PLReleaseSearchPage(scanner));
             }        
             else{
                 error();
@@ -38,14 +37,14 @@ public class DatabaseOptions extends Page {
         }
     }
 
+    
     @Override
     public void quit() {
         scanner.setPage(new LandingPage(scanner));
     }
-    
+
     @Override
     public void back() {
         scanner.setPage(new LandingPage(scanner));
     }
-    
 }

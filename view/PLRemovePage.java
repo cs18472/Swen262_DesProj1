@@ -1,19 +1,18 @@
 package view;
 
-public class DatabaseOptions extends Page {
-
+public class PLRemovePage extends Page {
     private final ScannerCLI scanner;
 
-    DatabaseOptions(ScannerCLI scanner){
+    PLRemovePage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Enter '1' to search for a song.");
-        System.out.println("Enter '2' to search for an artist.");
-        System.out.println("Enter '3' to search for a release.");
+        System.out.println("Enter '1' to remove a song.");
+        System.out.println("Enter '2' to rempve an artist.");
+        System.out.println("Enter '3' to remove a release.");
         System.out.println("Enter 'B' to return to the previous page.");
         System.out.println("Enter 'Q' to return to the landing page.");
         System.out.println("------------------------------------------------");
@@ -39,13 +38,7 @@ public class DatabaseOptions extends Page {
     }
 
     @Override
-    public void quit() {
-        scanner.setPage(new LandingPage(scanner));
-    }
-    
-    @Override
     public void back() {
-        scanner.setPage(new LandingPage(scanner));
+        scanner.setPage(new PLSearchDirectory(scanner));
     }
-    
 }

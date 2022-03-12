@@ -30,7 +30,7 @@ public class PLSongSearchPage extends Page {
     public void quit() {
         scanner.setPage(new LandingPage(scanner));
     }
-
+    
     @Override
     public void back() {
         scanner.setPage(new PersonalLibraryOptions(scanner));

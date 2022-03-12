@@ -42,10 +42,9 @@ public class PersonalLibraryOptions extends Page {
 
     @Override
     public void quit() {
-        // TODO Auto-generated method stub
-        
+        scanner.setPage(new LandingPage(scanner));
     }
-
+    
     @Override
     public void back() {
         // TODO Auto-generated method stub

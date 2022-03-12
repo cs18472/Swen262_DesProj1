@@ -1,11 +1,13 @@
 package view;
 
 public class DatabaseReleaseSearchPage extends Page{
+
     private final ScannerCLI scanner;
 
     DatabaseReleaseSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
+
 
     @Override
     public void menu() {

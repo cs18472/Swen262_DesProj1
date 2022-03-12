@@ -1,13 +1,12 @@
 package view;
 
 public abstract class Page{
-
-
+    
     public void menu(){
 
     }
     public void quit(){
-
+        
     }
     public void back(){
 
