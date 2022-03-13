@@ -1,6 +1,5 @@
 package model;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,11 +23,14 @@ public class Library implements LibraryElement{
         result = Database.search(1, guid, new DBGUIDSearch());
         if(result != null){
             collection.add(result.get(0));
+            System.out.println("Added song successfully.");
         }
         else{
+            //Search releases
             result = Database.search(2, guid, new DBGUIDSearch());
             if(result != null){
                 collection.add(result.get(0));
+                System.out.println("Added release successfully.");
             }
             else{
                 System.out.println("No song or release found with that GUID.");
@@ -38,7 +40,15 @@ public class Library implements LibraryElement{
     }
 
     public void remove(String guid){
-        
+        for(LibraryElement element : collection){
+            if(element.getGuid().equals(guid)){
+                collection.remove(element);
+                System.out.println("Removed successfully.");
+                return;
+            }
+        }
+        System.out.println("No element with that ID within the collection.");
+        return;
     }
 
     @Override
@@ -114,5 +124,10 @@ public class Library implements LibraryElement{
 
         }
         pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa");
+        pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61");
+        pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6");
+        pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
+        pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6");
+        pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b61");
     }
 }

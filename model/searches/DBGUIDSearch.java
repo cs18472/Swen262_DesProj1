@@ -15,7 +15,7 @@ public class DBGUIDSearch implements DatabaseSearcher{
         String guid;
         for (LibraryElement element: elements) {
             guid = element.getGuid();
-            if(guid.contains(input)){
+            if(guid.equals(input)){
                 result.add(element);
                 return result;
             }

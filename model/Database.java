@@ -21,7 +21,6 @@ public final class Database{
     protected static List<LibraryElement> songs = new ArrayList<>();
     protected static List<LibraryElement> releases = new ArrayList<>();
     protected static List<LibraryElement> artists = new ArrayList<>();
-    //private DatabaseSearcher searcher;
 
     private Database(List<LibraryElement> songs, List<LibraryElement> releases, List<LibraryElement> artists){
         this.songs = songs;
@@ -29,11 +28,7 @@ public final class Database{
         this.artists = artists;
     }
 
-    //public void setSearcher(DatabaseSearcher searcher){
-    //    this.searcher = searcher;
-    //}
-
-
+    //Type 1 = Songs, type 2 = Releases, type 3 = Artists
     public static List<LibraryElement> search(int type, String input, DatabaseSearcher searcher) {
         if (type == 1){
             return searcher.doSearch(songs, input);
