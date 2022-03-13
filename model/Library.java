@@ -5,24 +5,38 @@ import java.util.List;
 
 import model.searches.DBGUIDSearch;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /**
  * Composition for creating personal librarys
  */
 public class Library implements LibraryElement{
-    
+
+    public static final int GUID_LENGTH = 36;
+    public static final String LIBRARY_PATH = "model/Library.txt";
+
     private List<LibraryElement> collection;
+    private File librarytxt = new File(LIBRARY_PATH);
 
     Library(){
         this.collection = new ArrayList<>();
     }
 
-    public void add(String guid){
+    public void add(String guid) throws IOException{
         List<LibraryElement> result;
         //Search songs
         result = Database.search(1, guid, new DBGUIDSearch());
         if(result != null){
             collection.add(result.get(0));
+
+            FileWriter writer = new FileWriter(librarytxt);
+            writer.append(guid + "\n");
+            writer.close();
+
             System.out.println("Added song successfully.");
         }
         else{
@@ -30,6 +44,18 @@ public class Library implements LibraryElement{
             result = Database.search(2, guid, new DBGUIDSearch());
             if(result != null){
                 collection.add(result.get(0));
+
+                FileReader reader = new FileReader(librarytxt);
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                String library = "";
+                String line;
+                while((line = bufferedReader.readLine()) != null) {
+                    library += line + "\n";
+                }
+                library.replaceAll(guid, "");
+                bufferedReader.close();
+                reader.close();
+
                 System.out.println("Added release successfully.");
             }
             else{
@@ -37,12 +63,16 @@ public class Library implements LibraryElement{
             }
         }
 
+
+
     }
 
     public void remove(String guid){
         for(LibraryElement element : collection){
             if(element.getGuid().equals(guid)){
                 collection.remove(element);
+
+
                 System.out.println("Removed successfully.");
                 return;
             }
