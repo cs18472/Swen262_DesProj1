@@ -193,21 +193,21 @@ public class Library implements LibraryElement{
         Library pb = new Library();
         try{
             Database.main(args);
+            pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa");
+            pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61");
+            pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6");
+            for(LibraryElement element : pb.collection){
+                System.out.println(element);
+            }
+            pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
+            pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6");
+            pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b61");
+            for(LibraryElement element : pb.collection){
+                System.out.println(element);
+            }
         }
         catch(Exception E){
 
-        }
-        pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa");
-        pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61");
-        pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6");
-        for(LibraryElement element : pb.collection){
-            System.out.println(element);
-        }
-        pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
-        pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6");
-        pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b61");
-        for(LibraryElement element : pb.collection){
-            System.out.println(element);
         }
     }
 }
