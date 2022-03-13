@@ -22,18 +22,41 @@ public class Library implements LibraryElement{
         //Search songs
         result = Database.search(1, guid, new DBGUIDSearch());
         if(result != null){
-            collection.add(result.get(0));
-            System.out.println("Added song successfully.");
+            LibraryElement element = result.get(0);
+            if(!collection.contains(element)) {
+                collection.add(element);
+                System.out.println("Added song successfully.");
+                //Artist
+                String artistGuid = element.getArtistGuid();
+                for(LibraryElement element2 : collection){
+                    if(element2.getGuid().equals(artistGuid)){
+                        return;
+                    }
+                }
+                addArtist(artistGuid);
+            }
+
         }
         else{
             //Search releases
             result = Database.search(2, guid, new DBGUIDSearch());
             if(result != null){
-                collection.add(result.get(0));
-                System.out.println("Added release successfully.");
+                LibraryElement element = result.get(0);
+                if(!collection.contains(element)){
+                    collection.add(element);
+                    System.out.println("Added release successfully.");
+                    //Artist
+                    String artistGuid = element.getArtistGuid();
+                    for(LibraryElement element2 : collection){
+                        if(element2.getGuid().equals(artistGuid)){
+                            return;
+                        }
+                    }
+                    addArtist(artistGuid);
+                }
             }
             else{
-                System.out.println("No song or release found with that GUID.");
+                System.out.println("No song or release found with that GUID that isn't in your library.");
             }
         }
 
@@ -50,6 +73,16 @@ public class Library implements LibraryElement{
         System.out.println("No element with that ID within the collection.");
         return;
     }
+
+    // Add artist to the collection.
+    @Override
+    public void addArtist(String guid) {
+        List<LibraryElement> result = Database.search(3, guid, new DBGUIDSearch());
+        if(result != null){
+            collection.add(result.get(0));
+        }
+    }
+
 
     @Override
     public List<LibraryElement> search() {
@@ -76,8 +109,6 @@ public class Library implements LibraryElement{
     }
     @Override
     public void addName(String name) {}
-    @Override
-    public void addArtist(String name) {}
 
     @Override
     public String getTitle() {
