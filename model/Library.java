@@ -70,7 +70,7 @@ public class Library implements LibraryElement{
                 System.out.println("Removed successfully.");
                 //Search if any other elements are from the same artist
                 for(LibraryElement element2 : collection){
-                    if(element2.getArtistGuid().equals(artistGuid)){
+                    if(element2.getArtistGuid() != null && element2.getArtistGuid().equals(artistGuid)){
                         return;
                     }
                 }
@@ -170,8 +170,14 @@ public class Library implements LibraryElement{
         pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa");
         pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61");
         pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6");
+        for(LibraryElement element : pb.collection){
+            System.out.println(element);
+        }
         pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
         pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6");
         pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b61");
+        for(LibraryElement element : pb.collection){
+            System.out.println(element);
+        }
     }
 }
