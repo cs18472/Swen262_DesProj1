@@ -65,9 +65,22 @@ public class Library implements LibraryElement{
     public void remove(String guid){
         for(LibraryElement element : collection){
             if(element.getGuid().equals(guid)){
+                String artistGuid = element.getArtistGuid();
                 collection.remove(element);
                 System.out.println("Removed successfully.");
-                return;
+                //Search if any other elements are from the same artist
+                for(LibraryElement element2 : collection){
+                    if(element2.getArtistGuid().equals(artistGuid)){
+                        return;
+                    }
+                }
+                //Since no other element was made by the same artist, remove the artist
+                for(LibraryElement element3 : collection){
+                    if(element3.getGuid().equals(artistGuid)){
+                        collection.remove(element3);
+                        return;
+                    }
+                }
             }
         }
         System.out.println("No element with that ID within the collection.");
