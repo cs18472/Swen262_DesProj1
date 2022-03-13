@@ -58,17 +58,10 @@ public class Library implements LibraryElement{
                 LibraryElement element = result.get(0);
                 if(!collection.contains(element)){
                     collection.add(element);
-                    //Files
-                    FileReader reader = new FileReader(librarytxt);
-                    BufferedReader bufferedReader = new BufferedReader(reader);
-                    String library = "";
-                    String line;
-                    while((line = bufferedReader.readLine()) != null) {
-                        library += line + "\n";
-                    }
-                    library.replaceAll(guid, "");
-                    bufferedReader.close();
-                    reader.close();
+
+                    FileWriter writer = new FileWriter(librarytxt);
+                    writer.append(guid + "\n");
+                    writer.close();
 
                     System.out.println("Added release successfully.");
                     //Artist
@@ -90,11 +83,26 @@ public class Library implements LibraryElement{
 
     }
 
-    public void remove(String guid){
+    public void remove(String guid) throws IOException{
         for(LibraryElement element : collection){
             if(element.getGuid().equals(guid)){
                 String artistGuid = element.getArtistGuid();
                 collection.remove(element);
+
+                FileReader reader = new FileReader(librarytxt);
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                String library = "";
+                String line;
+                while((line = bufferedReader.readLine()) != null) {
+                    library += line + "\n";
+                }
+                library.replaceAll(guid, "");
+                bufferedReader.close();
+                reader.close();
+
+                FileWriter writer = new FileWriter(librarytxt);
+                writer.write(library);
+                writer.close();
 
 
                 System.out.println("Removed successfully.");
