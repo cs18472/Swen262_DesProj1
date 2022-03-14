@@ -7,7 +7,7 @@ import model.*;
 /**
  * This search strategy will find releases based on issue date
  */
-public class DBReleaseDateSearch implements Searcher{
+public class PLReleaseDateSearch implements Searcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
@@ -21,6 +21,5 @@ public class DBReleaseDateSearch implements Searcher{
             return null;
         }
         return result;
-    }
-    
+    }    
 }

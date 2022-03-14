@@ -5,25 +5,20 @@ import java.util.List;
 import model.*;
 
 /**
-This is a search pattern that provides releases based on name 
-*/
-public class DBReleaseSongNameSearch implements Searcher{
+ * This search strategy will find all releases with a given guid.
+ */
+public class PLReleaseArtistGUIDSearch implements Searcher{
+
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
         List<LibraryElement> result = new ArrayList<>();
-        String name;
-        String find = input.toLowerCase();
+        String title;
         // One by one move boundary of unsorted subarray
         for (LibraryElement element: elements) {
-            name = element.getTitle().toLowerCase();
-            if(name.contains(find)){
-                result.add(element);
-            }
+            title = element.getArtistGuid();
+            if(title.contains(input)) result.add(element);
         }
         if(result.size() == 0) return null;
         return result;
-    }
-
+    }  
 }
-    
-
