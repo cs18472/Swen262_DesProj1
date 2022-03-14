@@ -109,16 +109,12 @@ public class Library implements LibraryElement{
             String library = "";
             String line;
             while((line = bufferedReader.readLine()) != null) {
-                library += line + "\n";
+                if(!line.equals(guid)) library += line + "\n";
             }
-            library.replaceAll(guid, "");
-            bufferedReader.close();
-            reader.close();
 
             PrintWriter writer = new PrintWriter(librarytxt);
             writer.print("");
             writer.print(library);
-            writer.close();
 
             //Search if any other songs are from the same artist
             for(LibraryElement song : songs){
@@ -136,6 +132,18 @@ public class Library implements LibraryElement{
             for(LibraryElement element3 : artists){
                 if(element3.getGuid().equals(artistGuid)){
                     artists.remove(element3);
+
+                    library = "";
+                    while((line = bufferedReader.readLine()) != null) {
+                        if(!line.equals(guid)) library += line + "\n";
+                    }
+                    bufferedReader.close();
+                    reader.close();
+
+                    writer = new PrintWriter(librarytxt);
+                    writer.print("");
+                    writer.print(library);
+                    writer.close();
                     return;
                 }
             }
@@ -152,6 +160,16 @@ public class Library implements LibraryElement{
         List<LibraryElement> result = Database.search(3, guid, new DBGUIDSearch());
         if(result != null){
             artists.add(result.get(0));
+
+            
+            try {
+                FileWriter writer = new FileWriter(librarytxt, true);
+                writer.append(guid + "\n");
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("error adding artist");
+            }
+           
         }
     }
 
@@ -199,6 +217,7 @@ public class Library implements LibraryElement{
         try{
             Database.main(args);
             pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa");
+            /*
             pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61");
             pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6");
             pb.add("6d3f3086-dedd-4d3b-a791-99a4a3f4f141");
@@ -211,7 +230,9 @@ public class Library implements LibraryElement{
             for(LibraryElement element : pb.artists){
                 System.out.println(element);
             }
-            /*pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
+            */
+            pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
+            /*
             pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6");
             pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b61");
             for(LibraryElement element : pb.songs){
