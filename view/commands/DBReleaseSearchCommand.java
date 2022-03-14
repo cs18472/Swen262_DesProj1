@@ -3,13 +3,13 @@ package view.commands;
 import java.util.List;
 
 import model.Database;
-import model.DatabaseSearcher;
+import model.Searcher;
 import model.LibraryElement;
 
 public class DBReleaseSearchCommand implements SearchCommand {
 
     @Override
-    public void execute(String input, DatabaseSearcher searcher) {
+    public void execute(String input, Searcher searcher) {
         List<LibraryElement> searchResult = (Database.search(2, input, searcher));
         if(searchResult != null){
             System.out.println("\n");

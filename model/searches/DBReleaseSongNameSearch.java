@@ -7,7 +7,7 @@ import model.*;
 /**
 This is  asearch pattern that provides releases based on name 
 */
-public class DBReleaseSongNameSearch implements DatabaseSearcher{
+public class DBReleaseSongNameSearch implements Searcher{
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
         List<LibraryElement> result = new ArrayList<>();

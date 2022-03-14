@@ -23,7 +23,7 @@ public final class Database{
 
 
     //Type 1 = Songs, type 2 = Releases, type 3 = Artists
-    public static List<LibraryElement> search(int type, String input, DatabaseSearcher searcher) {
+    public static List<LibraryElement> search(int type, String input, Searcher searcher) {
         if (type == 1){
             return searcher.doSearch(songs, input);
         }
@@ -37,8 +37,6 @@ public final class Database{
             System.out.println("Error: Incorrect type specified");
             return null;
         }
-
-
     }
     
     /**

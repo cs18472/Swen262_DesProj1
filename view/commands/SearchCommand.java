@@ -1,8 +1,8 @@
 package view.commands;
 
-import model.DatabaseSearcher;
+import model.Searcher;
 
 //Command Interface for the PrivateLibraryCommands
 public interface SearchCommand {
-    public void execute(String input, DatabaseSearcher searcher);
+    public void execute(String input, Searcher searcher);
 }

@@ -7,7 +7,7 @@ import model.*;
 /**
  * This search strategy will find all releases with a given guid.
  */
-public class DBReleaseArtistGUIDSearch implements DatabaseSearcher{
+public class DBReleaseArtistGUIDSearch implements Searcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {

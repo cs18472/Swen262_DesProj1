@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.*;
 
-public class DBReleaseDateSearch implements DatabaseSearcher{
+public class DBReleaseDateSearch implements Searcher{
 
 /**
  * This search strategy will find releases based on issue date

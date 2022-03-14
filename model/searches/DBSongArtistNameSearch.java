@@ -7,7 +7,7 @@ import model.*;
 /**
  * This is a search strategy for finding songs by artists names.
  */
-public class DBSongArtistNameSearch implements DatabaseSearcher{
+public class DBSongArtistNameSearch implements Searcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {

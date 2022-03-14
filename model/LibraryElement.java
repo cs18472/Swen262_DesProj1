@@ -6,7 +6,7 @@ import java.util.List;
  * Component of the Composition pattern.
   */
 public interface LibraryElement {
-    public List<LibraryElement> search();
+    public List<LibraryElement> search(int type, String input, Searcher searcher);
     public String getGuid();
     public String getArtistGuid();
     public String getIssueDate();
