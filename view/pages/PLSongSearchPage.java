@@ -1,9 +1,11 @@
-package view;
+package view.pages;
 
-public class PLArtistSearchPage extends Page{
+import view.ScannerCLI;
+
+public class PLSongSearchPage extends Page {
     private final ScannerCLI scanner;
 
-    PLArtistSearchPage(ScannerCLI scanner){
+    PLSongSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -11,7 +13,7 @@ public class PLArtistSearchPage extends Page{
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the name of the artist you wish to search for.");
+        System.out.println("Please enter the title of the song you wish to search for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -23,6 +25,7 @@ public class PLArtistSearchPage extends Page{
         if (checkQuit(str)){
             //do the search
         }
+        //set page to personal library options
     }
 
     @Override

@@ -1,10 +1,11 @@
-package view;
+package view.pages;
 
+import view.ScannerCLI;
 
 public class LandingPage extends Page {
     private final ScannerCLI scanner;
 
-    LandingPage(ScannerCLI scanner){
+    public LandingPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
     

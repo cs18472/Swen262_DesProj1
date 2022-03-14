@@ -1,4 +1,6 @@
-package view;
+package view.pages;
+
+import view.ScannerCLI;
 
 public class PLRemovePage extends Page {
     private final ScannerCLI scanner;

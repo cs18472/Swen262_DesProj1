@@ -1,4 +1,4 @@
-package view;
+package view.pages;
 
 public abstract class Page{
     

@@ -1,6 +1,11 @@
 package view;
 
 import java.util.Scanner;
+
+import model.Database;
+import view.pages.LandingPage;
+import view.pages.Page;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -41,7 +46,7 @@ public class ScannerCLI {
         boolean exists = librarytxt.exists();
         if(!exists) librarytxt.createNewFile();
         if(exists) System.out.println("library imported");
-
+        Database.main(args);
 
         ScannerCLI newCli = new ScannerCLI();
         newCli.run();
