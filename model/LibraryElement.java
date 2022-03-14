@@ -17,4 +17,5 @@ public interface LibraryElement {
     public String getArtist();
     public String getName();
     public int getDuration();
+    public String getType();
 }

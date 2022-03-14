@@ -153,7 +153,6 @@ public class Library implements LibraryElement{
         }
     }
 
-
     @Override
     public List<LibraryElement> search(int type, String input, Searcher searcher) {
         if (type == 1){
@@ -171,52 +170,27 @@ public class Library implements LibraryElement{
         }
     }
   
+    //Unused Methods
     @Override
-    public String getGuid() {
-        return null;
-    }
+    public String getGuid() {return null;}
     @Override
-    public String getArtistGuid() {
-        return null;
-    }
+    public String getArtistGuid() {return null;}
     @Override
     public void addName(String name) {}
-
     @Override
-    public String getTitle() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public String getTitle() {return null;}
     @Override
-    public List<LibraryElement> getSongs() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public List<LibraryElement> getSongs() {return null;}
     @Override
-    public String getArtist() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public String getArtist() {return null;}
     @Override
-    public String getName() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public String getName() {return null;}
     @Override
-    public int getDuration() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
+    public int getDuration() {return 0;}
     @Override
-    public String getIssueDate() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    public String getIssueDate() {return null;}
+    @Override
+    public String getType() {return null;}
 
     public static void main(String[] args){
         Library pb = new Library();
