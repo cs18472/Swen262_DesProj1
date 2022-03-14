@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import model.searches.*;
 
 /**
  * Composition which holds all of the songs, artists, and releases
@@ -138,13 +137,5 @@ public final class Database{
             
         }
         brSongs.close();
-
-        // Testing (1 is songs, 2 is releases, 3 is artists)
-        List<LibraryElement> result = Database.search(2, "22",new DBReleaseDateSearch());
-        for(LibraryElement element : result){
-            System.out.println(element);
-        }
-
-
     }
 }
