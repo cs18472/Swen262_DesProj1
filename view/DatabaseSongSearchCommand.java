@@ -2,8 +2,7 @@ package view;
 
 import model.DatabaseSearcher;
 
-//This method will call the searcher to execute a search of the private library.
-public class PersonalLibrarySearch implements SearchCommand {
+public class DatabaseSongSearchCommand implements SearchCommand {
 
     @Override
     public void execute(String input, DatabaseSearcher searcher) {
