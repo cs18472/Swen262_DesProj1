@@ -1,6 +1,8 @@
 package view;
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
 
 public class ScannerCLI {
     public Page page = new LandingPage(this);
@@ -33,7 +35,14 @@ public class ScannerCLI {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
+        
+        File librarytxt = new File("./model/Library.txt");
+        boolean exists = librarytxt.exists();
+        if(!exists) librarytxt.createNewFile();
+        if(exists) System.out.println("library imported");
+
+
         ScannerCLI newCli = new ScannerCLI();
         newCli.run();
     }

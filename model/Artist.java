@@ -27,7 +27,7 @@ public class Artist implements LibraryElement{
 
     @Override
     public String toString() {
-        return name + " " + guid;
+        return "Artist: " + name + " GUID: " + guid;
     }
 
     public String getGuid() {
@@ -50,7 +50,7 @@ public class Artist implements LibraryElement{
     } 
     @Override
     public String getArtistGuid() {
-        return guid;
+        return null;
     }
     @Override
     public void addName(String name) {}
