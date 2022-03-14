@@ -6,7 +6,7 @@ import model.Database;
 import model.DatabaseSearcher;
 import model.LibraryElement;
 
-public class DatabaseSongCommand implements SearchCommand{
+public class DBSongSearchCommand implements SearchCommand {
 
     @Override
     public void execute(String input, DatabaseSearcher searcher){
@@ -21,5 +21,4 @@ public class DatabaseSongCommand implements SearchCommand{
             System.out.println("\nNo songs found.\n");
         }
     }
-    
 }

@@ -1,20 +1,20 @@
 package view.pages;
 
-import model.searches.DBTitleSearch;
+import model.searches.DBSongLessSearch;
 import view.ScannerCLI;
 import view.commands.DBSongSearchCommand;
 
-public class DBSongTitleSearchPage extends Page{
+public class DBSongLLSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    DBSongTitleSearchPage(ScannerCLI scanner){
+    DBSongLLSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the song title.");
+        System.out.println("Please enter the length that you wish to find songs shorter than.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -24,7 +24,7 @@ public class DBSongTitleSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            DBTitleSearch titleSearch = new DBTitleSearch();
+            DBSongLessSearch titleSearch = new DBSongLessSearch();
             DBSongSearchCommand search = new DBSongSearchCommand();
             search.execute(str, titleSearch);
         }
@@ -37,6 +37,6 @@ public class DBSongTitleSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new DBOptions(scanner));
+        scanner.setPage(new DBSongSearchPage(scanner));
     }
 }
