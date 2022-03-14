@@ -7,7 +7,7 @@ import model.*;
 /**
  * This is a search strategy for finding elements by GUID.
  */
-public class DBGUIDSearch implements DatabaseSearcher{
+public class DBGUIDSearch implements Searcher{
     
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {

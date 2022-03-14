@@ -1,13 +1,13 @@
 package model.searches;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import model.*;
 
 /**
- * This concrete search strategy will find either song's or release's titles that contain a certain input.
+ * This search strategy will find the releases with the artists name.
  */
-public class DBTitleSearch implements Searcher{
+public class PLReleaseArtistNameSearch implements Searcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
@@ -16,11 +16,10 @@ public class DBTitleSearch implements Searcher{
         String lowered = input.toLowerCase();
         // One by one move boundary of unsorted subarray
         for (LibraryElement element: elements) {
-            title = element.getTitle().toLowerCase();
+            title = element.getArtist().toLowerCase();
             if(title.contains(lowered)) result.add(element);
         }
         if(result.size() == 0) return null;
         return result;
-    }
-    
+    }   
 }

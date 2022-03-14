@@ -7,7 +7,7 @@ import model.*;
 /**
  * This is a search strategy that finds releases based on song guid.
  */
-public class DBReleaseSongGUIDSearch implements Searcher{
+public class PLReleaseSongGUIDSearch implements Searcher{
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
         List<LibraryElement> result = new ArrayList<>();
@@ -29,6 +29,5 @@ public class DBReleaseSongGUIDSearch implements Searcher{
         }
         if(result.size() == 0) return null;
         return result;
-    }
-    
+    } 
 }

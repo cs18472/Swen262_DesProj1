@@ -25,12 +25,6 @@ public class Release implements LibraryElement{
     }
 
     @Override
-    public List<LibraryElement> search() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public String toString() {
         return "Release: " + title + " GUID: " + guid + " Artist: " + artist;
     }
@@ -39,6 +33,7 @@ public class Release implements LibraryElement{
         this.artist = name;
     }
 
+    @Override
     public String getGuid() {
         return guid;
     }
@@ -48,30 +43,33 @@ public class Release implements LibraryElement{
     public String getIssueDate() {
         return issueDate;
     }
+    @Override
     public String getArtist() {
         return artist;
     }
+    @Override
     public String getArtistGuid() {
         return artistGuid;
     }
+    @Override
     public List<LibraryElement> getSongs() {
         return songs;
     }
+    @Override
     public String getTitle() {
         return title;
     }
+
+    //Unused Methods
     @Override
     public void addName(String name) {}
-
     @Override
-    public String getName() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public String getName() {return null;}
     @Override
-    public int getDuration() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+    public int getDuration() {return 0;}
+    @Override
+    public String getType() {return null;}
+    @Override
+    public List<LibraryElement> search(int type, String input, Searcher searcher) {return null;}
+
 }

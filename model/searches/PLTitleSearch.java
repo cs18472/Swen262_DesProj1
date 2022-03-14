@@ -1,5 +1,4 @@
 package model.searches;
-
 import java.util.List;
 import java.util.ArrayList;
 import model.*;
@@ -7,7 +6,7 @@ import model.*;
 /**
  * This concrete search strategy will find either song's or release's titles that contain a certain input.
  */
-public class DBTitleSearch implements Searcher{
+public class PLTitleSearch implements Searcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {

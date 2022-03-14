@@ -7,7 +7,7 @@ import model.*;
 /**
  * This is a search strategy for finding songs less than a given duration.
  */
-public class DBSongLessSearch implements DatabaseSearcher{
+public class DBSongLessSearch implements Searcher{
 
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {

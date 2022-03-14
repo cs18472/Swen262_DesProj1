@@ -1,29 +1,24 @@
 package model.searches;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import model.*;
 
 /**
-This is a search pattern that provides releases based on name 
-*/
-public class DBReleaseSongNameSearch implements Searcher{
+ * This is a search strategy that finds songs based on artist guid.
+ */
+public class PLSongArtistGUIDSearch implements Searcher{
     @Override
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
         List<LibraryElement> result = new ArrayList<>();
-        String name;
-        String find = input.toLowerCase();
-        // One by one move boundary of unsorted subarray
+        String artistGuid;
         for (LibraryElement element: elements) {
-            name = element.getTitle().toLowerCase();
-            if(name.contains(find)){
+            artistGuid = element.getArtistGuid();
+            if(artistGuid.equals(input)){
                 result.add(element);
             }
         }
         if(result.size() == 0) return null;
         return result;
     }
-
 }
-    
-

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.searches.DBGUIDSearch;
+import model.searches.PLTitleSearch;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -152,59 +153,44 @@ public class Library implements LibraryElement{
         }
     }
 
-
     @Override
-    public List<LibraryElement> search() {
-        // TODO Auto-generated method stub
-        return null;
+    public List<LibraryElement> search(int type, String input, Searcher searcher) {
+        if (type == 1){
+            return searcher.doSearch(songs, input);
+        }
+        else if(type == 2){
+            return searcher.doSearch(releases, input);
+        }
+        else if (type== 3){
+            return searcher.doSearch(artists, input);
+        }
+        else{
+            System.out.println("Error: Incorrect type specified");
+            return null;
+        }
     }
   
+    //Unused Methods
     @Override
-    public String getGuid() {
-        return null;
-    }
+    public String getGuid() {return null;}
     @Override
-    public String getArtistGuid() {
-        return null;
-    }
+    public String getArtistGuid() {return null;}
     @Override
     public void addName(String name) {}
-
     @Override
-    public String getTitle() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public String getTitle() {return null;}
     @Override
-    public List<LibraryElement> getSongs() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public List<LibraryElement> getSongs() {return null;}
     @Override
-    public String getArtist() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public String getArtist() {return null;}
     @Override
-    public String getName() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public String getName() {return null;}
     @Override
-    public int getDuration() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
+    public int getDuration() {return 0;}
     @Override
-    public String getIssueDate() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    public String getIssueDate() {return null;}
+    @Override
+    public String getType() {return null;}
 
     public static void main(String[] args){
         Library pb = new Library();
@@ -236,6 +222,10 @@ public class Library implements LibraryElement{
             }
             */
             System.out.println("Finished Test");
+            List<LibraryElement> result = pb.search(1, "i", new PLTitleSearch());
+            for(LibraryElement element : result){
+                System.out.println(element);
+            }
         }
         catch(Exception E){
 
