@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.searches.DBGUIDSearch;
-import model.searches.PLTitleSearch;
+import model.searches.PLSongAlphabeticalSearch;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -199,6 +199,7 @@ public class Library implements LibraryElement{
             pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa");
             pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61");
             pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6");
+            pb.add("6d3f3086-dedd-4d3b-a791-99a4a3f4f141");
             for(LibraryElement element : pb.songs){
                 System.out.println(element);
             }
@@ -222,7 +223,7 @@ public class Library implements LibraryElement{
             }
             */
             System.out.println("Finished Test");
-            List<LibraryElement> result = pb.search(1, "i", new PLTitleSearch());
+            List<LibraryElement> result = pb.search(1, "YOOOO", new PLSongAlphabeticalSearch());
             for(LibraryElement element : result){
                 System.out.println(element);
             }
