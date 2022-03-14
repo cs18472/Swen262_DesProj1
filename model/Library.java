@@ -9,6 +9,7 @@ import model.searches.PLSongAlphabeticalSearch;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -114,8 +115,9 @@ public class Library implements LibraryElement{
             bufferedReader.close();
             reader.close();
 
-            FileWriter writer = new FileWriter(librarytxt, true);
-            writer.write(library);
+            PrintWriter writer = new PrintWriter(librarytxt);
+            writer.print("");
+            writer.print(library);
             writer.close();
 
             //Search if any other songs are from the same artist
