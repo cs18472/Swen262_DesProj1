@@ -37,7 +37,7 @@ public class DBSongArtistSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new DBOptions(scanner));
+        scanner.setPage(new DBSongSearchPage(scanner));
     }
 }
 

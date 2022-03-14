@@ -1,9 +1,6 @@
 package view.pages;
 
-import model.searches.DBArtistNameSearch;
-import model.searches.DBTitleSearch;
 import view.ScannerCLI;
-import view.commands.DBSongSearchCommand;
 
 public class DBSongSearchPage extends Page {
     private final ScannerCLI scanner;
@@ -31,22 +28,25 @@ public class DBSongSearchPage extends Page {
         if (checkQuit(str)){
 
             if((str).equals("1")){
+                
+                scanner.setPage(new DBSongTitleSearchPage(scanner));
 
-                DBTitleSearch titleSearch = new DBTitleSearch();
-                DBSongSearchCommand search = new DBSongSearchCommand();
-                search.execute(str, titleSearch);
             }
             else if((str).equals("2")){
 
-                DBArtistNameSearch artistSearch = new DBArtistNameSearch();
-                DBSongSearchCommand search = new DBSongSearchCommand();
-                search.execute(str, artistSearch);
+                scanner.setPage(new DBSongArtistSearchPage(scanner));
             }
             else if((str).equals("3")){
 
-                DBTitleSearch titleSearch = new DBTitleSearch();
-                DBSongSearchCommand search = new DBSongSearchCommand();
-                search.execute(str, titleSearch);
+                scanner.setPage(new DBSongGUIDSearchPage(scanner));
+            }
+            else if((str).equals("4")){
+
+                scanner.setPage(new DBSongGLSearchPage(scanner));
+            }
+            else if((str).equals("5")){
+
+                scanner.setPage(new DBSongLLSearchPage(scanner));
             }
             else{
                 error();
