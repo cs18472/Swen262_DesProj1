@@ -200,11 +200,11 @@ public class Library implements LibraryElement{
             Database.main(args);
 
             System.out.println("\nAdd Test:");
-            pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa");
-            pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61");
-            pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6");
-            pb.add("6d3f3086-dedd-4d3b-a791-99a4a3f4f141");
-            pb.add("a6c6897a-7415-4f8d-b5a5-3a5e05f3be67"); //Artist GUID should fail
+            pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa"); //Valid song
+            pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61"); //Valid release
+            pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6"); //Invalid GUID
+            pb.add("6d3f3086-dedd-4d3b-a791-99a4a3f4f141"); //Valid Song
+            pb.add("a6c6897a-7415-4f8d-b5a5-3a5e05f3be67"); //Invalid because it's an artist
             for(LibraryElement element : pb.songs){
                 System.out.println(element);
             }
@@ -222,9 +222,11 @@ public class Library implements LibraryElement{
             }
 
             System.out.println("\nRemove Test:");
-            pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
-            pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6");
-            pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b61");
+            pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa"); //Valid song
+            pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6"); //Invalid GUID
+            pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b61"); //Valid release
+            pb.remove("925c7673-0e85-410f-b7e4-d9705a7aa619"); //Invalid because it is an artist
+            pb.remove("721427f0-5ff4-4ba7-a976-e3c21b05a586"); //Invalid because song isn't in library
             for(LibraryElement element : pb.songs){
                 System.out.println(element);
             }
