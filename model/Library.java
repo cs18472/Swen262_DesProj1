@@ -196,10 +196,13 @@ public class Library implements LibraryElement{
         Library pb = new Library();
         try{
             Database.main(args);
+
+            System.out.println("\nAdd Test:");
             pb.add("477c33b8-fa6a-46bc-866b-64f8585be7fa");
             pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b61");
             pb.add("2bf203ad-32df-3073-a6ff-a9ce76879b6");
             pb.add("6d3f3086-dedd-4d3b-a791-99a4a3f4f141");
+            pb.add("a6c6897a-7415-4f8d-b5a5-3a5e05f3be67"); //Artist GUID should fail
             for(LibraryElement element : pb.songs){
                 System.out.println(element);
             }
@@ -209,7 +212,15 @@ public class Library implements LibraryElement{
             for(LibraryElement element : pb.artists){
                 System.out.println(element);
             }
-            /*pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
+
+            System.out.println("\nAlphabetize Test:");
+            List<LibraryElement> result = pb.search(1, "YOOOO", new PLSongAlphabeticalSearch());
+            for(LibraryElement element : result){
+                System.out.println(element);
+            }
+
+            System.out.println("\nRemove Test:");
+            pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa");
             pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6");
             pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b61");
             for(LibraryElement element : pb.songs){
@@ -219,12 +230,6 @@ public class Library implements LibraryElement{
                 System.out.println(element);
             }
             for(LibraryElement element : pb.artists){
-                System.out.println(element);
-            }
-            */
-            System.out.println("Finished Test");
-            List<LibraryElement> result = pb.search(1, "YOOOO", new PLSongAlphabeticalSearch());
-            for(LibraryElement element : result){
                 System.out.println(element);
             }
         }
