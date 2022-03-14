@@ -1,33 +1,33 @@
 package view.pages;
 
+import model.searches.DBArtistNameSearch;
 import view.ScannerCLI;
+import view.commands.DBArtistSearchCommand;
 
-public class DBReleaseSearchPage extends Page{
-
+public class DBArtistNameSearchPage extends Page {
     private final ScannerCLI scanner;
 
-    DBReleaseSearchPage(ScannerCLI scanner){
+    DBArtistNameSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
+    
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Enter '1' to search for releases by artist GUID.");
-        System.out.println("Enter '2' to search for releases by release date.");
-        System.out.println("Enter '3' to search for releases by song GUID.");
-        System.out.println("Enter '4' to search for releases by song NAME.");
-        System.out.println("Enter 'B' to return to the previous page.");
-        System.out.println("Enter 'Q' to return to the landing page.");
+        System.out.println("Please enter the name of the artist you want to search for.");
+        System.out.println("Press 'B' to return to the previous page.");
+        System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
-        
     }
 
     @Override
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-           
+            DBArtistSearchCommand search = new DBArtistSearchCommand();
+            DBArtistNameSearch artistSearch = new DBArtistNameSearch();
+            search.execute(str, artistSearch);
         }
     }
 
@@ -40,4 +40,6 @@ public class DBReleaseSearchPage extends Page{
     public void back() {
         scanner.setPage(new DBOptions(scanner));
     }
+    
+
 }

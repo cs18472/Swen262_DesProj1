@@ -28,7 +28,7 @@ public class PLRemovePage extends Page {
                 scanner.setPage(new DBSongSearchPage(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new DBArtistSearchPage(scanner));
+                scanner.setPage(new DBArtistNameSearchPage(scanner));
             }
             else if ((str).equals("3")){
                 scanner.setPage(new DBReleaseSearchPage(scanner));
