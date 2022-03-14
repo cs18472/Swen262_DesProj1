@@ -10,7 +10,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 
 /**
@@ -62,6 +66,7 @@ public class Library implements LibraryElement{
         if(added == true){
             FileWriter writer = new FileWriter(librarytxt, true);
             writer.append(guid + "\n");
+            writer.flush();
             writer.close();
 
             System.out.println("Added song successfully.");
@@ -106,16 +111,28 @@ public class Library implements LibraryElement{
             System.out.println("Removed successfully.");
             FileReader reader = new FileReader(librarytxt);
             BufferedReader bufferedReader = new BufferedReader(reader);
-            String library = "";
+            List<String> library = new ArrayList<>();
+            List<String> test = new ArrayList<>();
             String line;
             while((line = bufferedReader.readLine()) != null) {
-                if(!line.equals(guid)) library += line + "\n";
+                if(!line.equals(guid)) library.add(line);
+                test.add(line);
             }
 
-            PrintWriter writer = new PrintWriter(librarytxt);
-            writer.print("");
-            writer.print(library);
+            PrintWriter pWriter = new PrintWriter(librarytxt);
+            pWriter.print("");
+            pWriter.flush();
+            pWriter.close();
 
+            String libraryStr = "";
+            for(String s : library) {
+                libraryStr += s + "\n";
+            }
+
+            BufferedWriter bWriter = new BufferedWriter(new FileWriter(librarytxt));
+            bWriter.write(libraryStr);
+            bWriter.close();
+            
             //Search if any other songs are from the same artist
             for(LibraryElement song : songs){
                 if(song.getArtistGuid() != null && song.getArtistGuid().equals(artistGuid)){
@@ -133,18 +150,28 @@ public class Library implements LibraryElement{
                 if(element3.getGuid().equals(artistGuid)){
                     artists.remove(element3);
 
-                    library = "";
+                    reader = new FileReader(librarytxt);
+                    bufferedReader = new BufferedReader(reader);
+                    library = new ArrayList<>();
+                    line = "";
                     while((line = bufferedReader.readLine()) != null) {
-                        if(!line.equals(guid)) library += line + "\n";
+                        if(!line.equals(artistGuid)) library.add(line);
+                        test.add(line);
                     }
-                    bufferedReader.close();
-                    reader.close();
 
-                    writer = new PrintWriter(librarytxt);
-                    writer.print("");
-                    writer.print(library);
-                    writer.close();
-                    return;
+                    pWriter = new PrintWriter(librarytxt);
+                    pWriter.print("");
+                    pWriter.flush();
+                    pWriter.close();
+
+                    libraryStr = "";
+                    for(String s : library) {
+                        libraryStr += s + "\n";
+                    }
+
+                    bWriter = new BufferedWriter(new FileWriter(librarytxt));
+                    bWriter.write(libraryStr);
+                    bWriter.close();
                 }
             }
         }
@@ -238,7 +265,7 @@ public class Library implements LibraryElement{
             for(LibraryElement element : result){
                 System.out.println(element);
             }
-
+            
             System.out.println("\nRemove Test:");
             pb.remove("477c33b8-fa6a-46bc-866b-64f8585be7fa"); //Valid song
             pb.remove("2bf203ad-32df-3073-a6ff-a9ce76879b6"); //Invalid GUID
@@ -254,6 +281,7 @@ public class Library implements LibraryElement{
             for(LibraryElement element : pb.artists){
                 System.out.println(element);
             }
+            
         }
         catch(Exception E){
 
