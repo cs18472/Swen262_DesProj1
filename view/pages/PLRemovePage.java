@@ -1,6 +1,8 @@
 package view.pages;
 
 import view.ScannerCLI;
+import view.pages.DBReleaseSearchPages.DBReleaseSearchPage;
+import view.pages.DBSongSearchPages.DBSongSearchPage;
 
 public class PLRemovePage extends Page {
     private final ScannerCLI scanner;
@@ -28,7 +30,7 @@ public class PLRemovePage extends Page {
                 scanner.setPage(new DBSongSearchPage(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new DBArtistNameSearchPage(scanner));
+                //scanner.setPage(new DBArtistNameSearchPage(scanner));
             }
             else if ((str).equals("3")){
                 scanner.setPage(new DBReleaseSearchPage(scanner));
