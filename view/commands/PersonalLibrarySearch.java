@@ -8,7 +8,6 @@ public class PersonalLibrarySearch implements SearchCommand {
     @Override
     public void execute(String input, DatabaseSearcher searcher) {
         
-        
     }
     
 }

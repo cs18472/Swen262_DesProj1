@@ -28,7 +28,7 @@ public class LandingPage extends Page {
                 scanner.setPage(new PersonalLibraryOptions(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new DatabaseOptions(scanner));
+                scanner.setPage(new DBOptions(scanner));
             }
             else{
                 error();

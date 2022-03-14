@@ -1,19 +1,20 @@
 package view.pages;
 
+import model.searches.DBTitleSearch;
 import view.ScannerCLI;
+import view.commands.DatabaseSongCommand;
 
-public class DatabaseArtistSearchPage extends Page {
+public class DBSongTitleSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    DatabaseArtistSearchPage(ScannerCLI scanner){
+    DBSongTitleSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
-    
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the name of the artist you want to search for.");
+        System.out.println("Please enter the song title.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -23,7 +24,9 @@ public class DatabaseArtistSearchPage extends Page {
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            
+            DBTitleSearch titleSearch = new DBTitleSearch();
+            DatabaseSongCommand search = new DatabaseSongCommand();
+            search.execute(str, titleSearch);
         }
     }
 
@@ -34,8 +37,6 @@ public class DatabaseArtistSearchPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new DatabaseOptions(scanner));
+        scanner.setPage(new DBOptions(scanner));
     }
-    
-
 }

@@ -2,11 +2,11 @@ package view.pages;
 
 import view.ScannerCLI;
 
-public class DatabaseOptions extends Page {
+public class DBOptions extends Page {
 
     private final ScannerCLI scanner;
 
-    public DatabaseOptions(ScannerCLI scanner){
+    public DBOptions(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -26,13 +26,13 @@ public class DatabaseOptions extends Page {
     public void interpretInput(String str) {
         if (checkQuit(str)){
             if((str).equals("1")){
-                scanner.setPage(new DatabaseSongSearchPage(scanner));
+                scanner.setPage(new DBSongSearchPage(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new DatabaseArtistSearchPage(scanner));
+                scanner.setPage(new DBArtistSearchPage(scanner));
             }
             else if ((str).equals("3")){
-                scanner.setPage(new DatabaseReleaseSearchPage(scanner));
+                scanner.setPage(new DBReleaseSearchPage(scanner));
             }        
             else{
                 error();
