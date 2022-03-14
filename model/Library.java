@@ -58,7 +58,7 @@ public class Library implements LibraryElement{
             }
         }
         if(added == true){
-            FileWriter writer = new FileWriter(librarytxt);
+            FileWriter writer = new FileWriter(librarytxt, true);
             writer.append(guid + "\n");
             writer.close();
 
@@ -113,7 +113,7 @@ public class Library implements LibraryElement{
             bufferedReader.close();
             reader.close();
 
-            FileWriter writer = new FileWriter(librarytxt);
+            FileWriter writer = new FileWriter(librarytxt, true);
             writer.write(library);
             writer.close();
 
