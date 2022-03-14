@@ -7,7 +7,6 @@ import java.util.List;
   */
 public interface LibraryElement {
     public List<LibraryElement> search();
-    public double getRating();
     public String getGuid();
     public String getArtistGuid();
     public String getIssueDate();

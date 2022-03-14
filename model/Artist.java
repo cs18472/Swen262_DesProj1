@@ -7,7 +7,6 @@ public class Artist implements LibraryElement{
     private List<LibraryElement> releases;
     private String name;
     private String type;
-    private int rating;
     private String guid;
 
     public Artist(List<LibraryElement> songs, List<LibraryElement> releases, String guid, String name, String type) {
@@ -16,7 +15,6 @@ public class Artist implements LibraryElement{
         this.guid = guid;
         this.name = name;
         this.type = type;
-        this.rating = 0;
     }
 
     @Override
@@ -35,9 +33,6 @@ public class Artist implements LibraryElement{
     }
     public String getName() {
         return name;
-    }
-    public double getRating() {
-        return rating;
     }
     public List<LibraryElement> getReleases() {
         return releases;

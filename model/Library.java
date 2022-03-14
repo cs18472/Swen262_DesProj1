@@ -140,15 +140,6 @@ public class Library implements LibraryElement{
         // TODO Auto-generated method stub
         return null;
     }
-
-    @Override
-    public double getRating() {
-        double rating = 0.0;
-        for(LibraryElement e: collection){
-            rating += e.getRating();
-        }
-        return (rating/collection.size());
-    }
   
     @Override
     public String getGuid() {

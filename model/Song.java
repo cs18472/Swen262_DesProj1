@@ -11,7 +11,6 @@ public class Song implements LibraryElement{
     private String artistGuid;
     private String artist;
     private int duration;
-    private int rating;
 
     public Song(String title, String guid, String artistGuid, String artist, int duration) {
         this.title = title;
@@ -19,7 +18,6 @@ public class Song implements LibraryElement{
         this.artistGuid = artistGuid;
         this.artist = artist;
         this.duration = duration;
-        this.rating = 0;
     }
 
     @Override
@@ -44,9 +42,6 @@ public class Song implements LibraryElement{
     }
     public String getGuid() {
         return guid;
-    }
-    public double getRating() {
-        return rating;
     }
     @Override
     public String getTitle() {

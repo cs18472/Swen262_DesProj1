@@ -13,7 +13,6 @@ public class Release implements LibraryElement{
     private String issueDate;
     private String medium;
     private List<LibraryElement> songs;
-    private int rating;
 
     public Release (String guid, String title, String artistGuid, String artist, String issueDate, String medium, List<LibraryElement> songs) {
         this.guid = guid;
@@ -23,16 +22,6 @@ public class Release implements LibraryElement{
         this.issueDate = issueDate;
         this.medium = medium;
         this.songs = songs;
-        
-        int totalNum = 0;
-        int totalRating = 0;
-        for(LibraryElement s : songs) {
-            totalNum++;
-            totalRating += s.getRating();
-        }
-
-        if(totalNum == 0 || totalRating == 0) this.rating = 0;
-        else this.rating = totalRating/totalNum;
     }
 
     @Override
@@ -64,9 +53,6 @@ public class Release implements LibraryElement{
     }
     public String getArtistGuid() {
         return artistGuid;
-    }
-    public double getRating() {
-        return rating;
     }
     public List<LibraryElement> getSongs() {
         return songs;
