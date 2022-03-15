@@ -39,6 +39,9 @@ public class PLArtistSearchPage extends Page{
             else if((str).equals("3")){
                 scanner.setPage(new PLArtistTypePage(scanner));
             }
+            else{
+                error();
+            }
         }
     }
 
