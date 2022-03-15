@@ -8,6 +8,7 @@ public class Artist implements LibraryElement{
     private String name;
     private String type;
     private String guid;
+    private int totDuration;
 
     public Artist(List<LibraryElement> songs, List<LibraryElement> releases, String guid, String name, String type) {
         this.songs = songs;
@@ -15,6 +16,10 @@ public class Artist implements LibraryElement{
         this.guid = guid;
         this.name = name;
         this.type = type;
+
+        for(LibraryElement song : songs){
+            totDuration = song.getDuration() + totDuration;
+        }
     }
 
     @Override
@@ -25,7 +30,7 @@ public class Artist implements LibraryElement{
 
     @Override
     public String toString() {
-        return "Artist: " + name + " GUID: " + guid;
+        return "Artist: " + name + " GUID: " + guid + " Type: " + type + " Total Duration: " + totDuration;
     }
     public String getGuid() {
         return guid;
@@ -42,6 +47,10 @@ public class Artist implements LibraryElement{
     public String getType() {
         return type;
     } 
+    @Override
+    public int getDuration() {
+        return totDuration;
+    }
 
     //Unused Methods
     @Override
@@ -55,7 +64,9 @@ public class Artist implements LibraryElement{
     @Override
     public String getArtist() {return null;}
     @Override
-    public int getDuration() {return 0;}
-    @Override
     public String getIssueDate() {return null;}
+    @Override
+    public List<LibraryElement> getArtistWork(String guid) {return null;}
+    @Override
+    public List<LibraryElement> getArtists() {return null;}
 }

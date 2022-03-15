@@ -1,11 +1,15 @@
-package view.pages;
+package view.pages.PLSongSearchPages;
 
+import model.searches.PLSongAlphabeticalSearch;
+import view.commands.PLSongSearchCommand;
 import view.ScannerCLI;
+import view.pages.LandingPage;
+import view.pages.Page;
 
-public class PLSongSearchPage extends Page {
+public class PLSongAlphaPage extends Page{
     private final ScannerCLI scanner;
 
-    PLSongSearchPage(ScannerCLI scanner){
+    public PLSongAlphaPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -13,7 +17,7 @@ public class PLSongSearchPage extends Page {
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the title of the song you wish to search for.");
+        System.out.println("Enter anything to see songs alphabetically.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -23,9 +27,10 @@ public class PLSongSearchPage extends Page {
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            //do the search
+            PLSongSearchCommand search = new PLSongSearchCommand();
+            PLSongAlphabeticalSearch songSearch = new PLSongAlphabeticalSearch();
+            search.execute(scanner.PL, str, songSearch);
         }
-        //set page to personal library options
     }
 
     @Override
@@ -35,7 +40,7 @@ public class PLSongSearchPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new PersonalLibraryOptions(scanner));
+        scanner.setPage(new PLSongSearchPage(scanner));
     }
     
 }

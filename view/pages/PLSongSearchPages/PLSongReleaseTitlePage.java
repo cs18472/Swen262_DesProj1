@@ -1,20 +1,23 @@
-package view.pages;
+package view.pages.PLSongSearchPages;
 
-import model.searches.DBSongLessSearch;
+import model.searches.PLSongReleaseTitleSearch;
 import view.ScannerCLI;
-import view.commands.DBSongSearchCommand;
+import view.commands.PLReleaseSearchCommand;
+import view.pages.LandingPage;
+import view.pages.Page;
 
-public class DBSongLLSearchPage extends Page{
+public class PLSongReleaseTitlePage extends Page{
     private final ScannerCLI scanner;
 
-    DBSongLLSearchPage(ScannerCLI scanner){
+    public PLSongReleaseTitlePage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
+    
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the length that you wish to find songs shorter than.");
+        System.out.println("Please enter the release title that you wish to find songs for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -24,9 +27,9 @@ public class DBSongLLSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            DBSongLessSearch titleSearch = new DBSongLessSearch();
-            DBSongSearchCommand search = new DBSongSearchCommand();
-            search.execute(str, titleSearch);
+            PLReleaseSearchCommand search = new PLReleaseSearchCommand();
+            PLSongReleaseTitleSearch songSearch = new PLSongReleaseTitleSearch();
+            search.execute(scanner.PL, str, songSearch);
         }
     }
 
@@ -37,6 +40,6 @@ public class DBSongLLSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new DBSongSearchPage(scanner));
-    }
+        scanner.setPage(new PLSongSearchPage(scanner));
+    }    
 }

@@ -1,13 +1,15 @@
-package view.pages;
+package view.pages.PLReleasePages;
 
-import model.searches.DBArtistNameSearch;
+import model.searches.PLReleaseArtistGUIDSearch;
 import view.ScannerCLI;
-import view.commands.DBArtistSearchCommand;
+import view.commands.PLReleaseSearchCommand;
+import view.pages.LandingPage;
+import view.pages.Page;
 
-public class DBArtistNameSearchPage extends Page {
+public class PLReleaseArtistGUIDSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    DBArtistNameSearchPage(ScannerCLI scanner){
+    public PLReleaseArtistGUIDSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -15,7 +17,7 @@ public class DBArtistNameSearchPage extends Page {
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the name of the artist you want to search for.");
+        System.out.println("Please enter the GUID of the artist whose releases you are searching for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -25,9 +27,9 @@ public class DBArtistNameSearchPage extends Page {
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            DBArtistSearchCommand search = new DBArtistSearchCommand();
-            DBArtistNameSearch artistSearch = new DBArtistNameSearch();
-            search.execute(str, artistSearch);
+            PLReleaseSearchCommand search = new PLReleaseSearchCommand();
+            PLReleaseArtistGUIDSearch releaseSearch = new PLReleaseArtistGUIDSearch();
+            search.execute(scanner.PL, str, releaseSearch);
         }
     }
 
@@ -38,8 +40,8 @@ public class DBArtistNameSearchPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new DBOptions(scanner));
+        scanner.setPage(new PLReleaseSearchPage(scanner));
     }
     
-
 }
+

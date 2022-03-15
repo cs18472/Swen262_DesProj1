@@ -1,11 +1,14 @@
 package view.pages;
 
 import view.ScannerCLI;
+import view.pages.PLArtistSearchPages.PLArtistSearchPage;
+import view.pages.PLReleasePages.PLReleaseSearchPage;
+import view.pages.PLSongSearchPages.PLSongSearchPage;
 
-public class PLSearchDirectory extends Page {
+public class PLSearchDirectoryPage extends Page {
     private final ScannerCLI scanner;
 
-    PLSearchDirectory(ScannerCLI scanner){
+    public PLSearchDirectoryPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 

@@ -1,20 +1,22 @@
-package view.pages;
+package view.pages.DBSongSearchPages;
 
-import model.searches.DBSongArtistNameSearch;
+import model.searches.DBGUIDSearch;
 import view.ScannerCLI;
 import view.commands.DBSongSearchCommand;
+import view.pages.LandingPage;
+import view.pages.Page;
 
-public class DBSongArtistSearchPage extends Page{
+public class DBSongGUIDSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    DBSongArtistSearchPage(ScannerCLI scanner){
+    DBSongGUIDSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the artist name.");
+        System.out.println("Please enter the length that you wish to find songs longer than.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -24,9 +26,9 @@ public class DBSongArtistSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            DBSongArtistNameSearch artistSearch = new DBSongArtistNameSearch();
+            DBGUIDSearch GUIDSearch = new DBGUIDSearch();
             DBSongSearchCommand search = new DBSongSearchCommand();
-            search.execute(str, artistSearch);
+            search.execute(str, GUIDSearch);
         }
     }
 
@@ -40,4 +42,3 @@ public class DBSongArtistSearchPage extends Page{
         scanner.setPage(new DBSongSearchPage(scanner));
     }
 }
-

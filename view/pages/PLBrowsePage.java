@@ -1,23 +1,24 @@
 package view.pages;
 
+import java.util.List;
+
+import model.LibraryElement;
 import view.ScannerCLI;
 
-public class PersonalLibraryOptions extends Page {
 
+public class PLBrowsePage extends Page {
     private final ScannerCLI scanner;
-    
-    public PersonalLibraryOptions(ScannerCLI scanner){
+
+    public PLBrowsePage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
-    
     @Override
     public void menu() {
+        displayArtists();
         System.out.println("------------------------------------------------");
-        System.out.println("Enter '1' to enter the Personal Library Search.");
-        System.out.println("Enter '2' to browse your Personal Libary.");
-        System.out.println("Enter '3' to add to your Personal Library.");
-        System.out.println("Enter '4' to remove from your Personal Library.");
+        System.out.println("Please enter '1' to view your artists again.");
+        System.out.println("If you wish to explore a certain artist, please enter the GUID of the artist.");
         System.out.println("Enter 'B' to return to the previous page.");
         System.out.println("Enter 'Q' to return to the landing page.");
         System.out.println("------------------------------------------------");
@@ -28,23 +29,23 @@ public class PersonalLibraryOptions extends Page {
     public void interpretInput(String str) {
         if (checkQuit(str)){
             if((str).equals("1")){
-                scanner.setPage(new PLSearchDirectoryPage(scanner));
-            }
-            else if((str).equals("2")){
                 scanner.setPage(new PLBrowsePage(scanner));
             }
-            else if((str).equals("3")){
-                scanner.setPage(new PLAddPage(scanner));
-            }
-            else if ((str).equals("4")){
-                scanner.setPage(new PLRemovePage(scanner));
-            }        
             else{
-                error();
+                scanner.setPage(new PLArtistExplorePage(scanner, str));
             }
         }
     }
 
+    private void displayArtists(){
+        List<LibraryElement> artistList = this.scanner.PL.getArtists();
+        if(artistList!= null){
+            System.out.println("\n");
+            for (LibraryElement e : (artistList)){
+                System.out.println(e.toString());
+            }
+        }
+    }
     @Override
     public void quit() {
         scanner.setPage(new LandingPage(scanner));
@@ -52,7 +53,6 @@ public class PersonalLibraryOptions extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new LandingPage(scanner));
+        scanner.setPage(new PersonalLibraryOptions(scanner));
     }
-    
 }

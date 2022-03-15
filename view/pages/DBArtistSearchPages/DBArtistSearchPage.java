@@ -1,20 +1,23 @@
-package view.pages;
+package view.pages.DBArtistSearchPages;
 
-import model.searches.DBTitleSearch;
 import view.ScannerCLI;
-import view.commands.DBSongSearchCommand;
+import view.pages.DBOptions;
+import view.pages.LandingPage;
+import view.pages.Page;
 
-public class DBSongTitleSearchPage extends Page{
+
+public class DBArtistSearchPage extends Page {
     private final ScannerCLI scanner;
 
-    DBSongTitleSearchPage(ScannerCLI scanner){
+    DBArtistSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the song title.");
+        System.out.println("Please press '1' to search by name.");
+        System.out.println("Please press '2' to search by GUID.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -24,9 +27,18 @@ public class DBSongTitleSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            DBTitleSearch titleSearch = new DBTitleSearch();
-            DBSongSearchCommand search = new DBSongSearchCommand();
-            search.execute(str, titleSearch);
+
+            if((str).equals("1")){
+
+                scanner.setPage(new DBArtistNameSearchPage(scanner));
+            }
+            else if((str).equals("2")){
+
+                scanner.setPage(new DBArtistGUIDSearchPage(scanner));
+            }
+            else{
+                error();
+            }
         }
     }
 

@@ -3,6 +3,7 @@ package view;
 import java.util.Scanner;
 
 import model.Database;
+import model.Library;
 import view.pages.LandingPage;
 import view.pages.Page;
 
@@ -14,6 +15,7 @@ public class ScannerCLI {
     public static boolean on = true;
     public static Scanner scanner = new Scanner(System.in);
     public static String input;
+    public Library PL = new Library();
 
     ScannerCLI(){
         

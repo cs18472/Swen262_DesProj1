@@ -1,8 +1,10 @@
-package view.pages;
+package view.pages.DBSongSearchPages;
 
 import model.searches.DBSongGreaterSearch;
 import view.ScannerCLI;
 import view.commands.DBSongSearchCommand;
+import view.pages.LandingPage;
+import view.pages.Page;
 
 public class DBSongGLSearchPage extends Page{
     private final ScannerCLI scanner;

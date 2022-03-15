@@ -1,20 +1,20 @@
 package view.pages;
 
 import view.ScannerCLI;
+import view.commands.PLAddCommand;
+
 
 public class PLAddPage extends Page {
     private final ScannerCLI scanner;
 
-    PLAddPage(ScannerCLI scanner){
+    public PLAddPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Enter '1' to add a song.");
-        System.out.println("Enter '2' to add an artist.");
-        System.out.println("Enter '3' to add a release.");
+        System.out.println("Enter the GUID of the release or song you wish to add.");
         System.out.println("Enter 'B' to return to the previous page.");
         System.out.println("Enter 'Q' to return to the landing page.");
         System.out.println("------------------------------------------------");
@@ -24,18 +24,7 @@ public class PLAddPage extends Page {
     @Override
     public void interpretInput(String str) {
         if (checkQuit(str)){
-            if((str).equals("1")){
-                scanner.setPage(new DBSongSearchPage(scanner));
-            }
-            else if((str).equals("2")){
-                scanner.setPage(new DBArtistNameSearchPage(scanner));
-            }
-            else if ((str).equals("3")){
-                scanner.setPage(new DBReleaseSearchPage(scanner));
-            }        
-            else{
-                error();
-            }
+            PLAddCommand.execute(scanner.PL, str);
         }
     }
 
@@ -46,6 +35,6 @@ public class PLAddPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new PLSearchDirectory(scanner));
+        scanner.setPage(new PLSearchDirectoryPage(scanner));
     }
 }
