@@ -1,20 +1,22 @@
-package view.pages;
+package view.pages.DBReleaseSearchPages;
 
-import model.searches.DBSongArtistNameSearch;
+import model.searches.DBReleaseSongNameSearch;
 import view.ScannerCLI;
-import view.commands.DBSongSearchCommand;
+import view.commands.DBReleaseSearchCommand;
+import view.pages.LandingPage;
+import view.pages.Page;
 
-public class DBSongArtistSearchPage extends Page{
+public class DBReleaseSongNameSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    DBSongArtistSearchPage(ScannerCLI scanner){
+    DBReleaseSongNameSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the artist name.");
+        System.out.println("Please enter the Song Name that you wish to search for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -24,9 +26,9 @@ public class DBSongArtistSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            DBSongArtistNameSearch artistSearch = new DBSongArtistNameSearch();
-            DBSongSearchCommand search = new DBSongSearchCommand();
-            search.execute(str, artistSearch);
+            DBReleaseSongNameSearch releaseSearch = new DBReleaseSongNameSearch();
+            DBReleaseSearchCommand search = new DBReleaseSearchCommand();
+            search.execute(str, releaseSearch);
         }
     }
 
@@ -37,7 +39,7 @@ public class DBSongArtistSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new DBSongSearchPage(scanner));
+        scanner.setPage(new DBReleaseSearchPage(scanner));
     }
 }
 

@@ -1,12 +1,15 @@
-package view.pages;
+package view.pages.DBReleaseSearchPages;
 
 import view.ScannerCLI;
+import view.pages.DBOptions;
+import view.pages.LandingPage;
+import view.pages.Page;
 
 public class DBReleaseSearchPage extends Page{
 
     private final ScannerCLI scanner;
 
-    DBReleaseSearchPage(ScannerCLI scanner){
+    public DBReleaseSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -27,7 +30,21 @@ public class DBReleaseSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-           
+            if((str).equals("1")){
+                scanner.setPage(new DBReleaseArtistGUIDSearchPage(scanner));
+            }
+            else if((str).equals("2")){
+                scanner.setPage(new DBReleaseDateSearchPage(scanner));
+            }
+            else if((str).equals("3")){
+                scanner.setPage(new DBReleaseSongGUIDSearchPage(scanner));
+            }
+            else if((str).equals("4")){
+                scanner.setPage(new DBReleaseSongNameSearchPage(scanner));
+            }
+            else {
+                error();
+            }
         }
     }
 

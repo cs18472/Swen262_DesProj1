@@ -1,8 +1,11 @@
-package view.pages;
+package view.pages.DBSongSearchPages;
 
 import model.searches.DBTitleSearch;
 import view.ScannerCLI;
 import view.commands.DBSongSearchCommand;
+import view.pages.DBOptions;
+import view.pages.LandingPage;
+import view.pages.Page;
 
 public class DBSongTitleSearchPage extends Page{
     private final ScannerCLI scanner;

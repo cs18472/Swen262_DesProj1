@@ -1,6 +1,9 @@
-package view.pages;
+package view.pages.DBArtistSearchPages;
 
 import view.ScannerCLI;
+import view.pages.DBOptions;
+import view.pages.LandingPage;
+import view.pages.Page;
 
 
 public class DBArtistSearchPage extends Page {

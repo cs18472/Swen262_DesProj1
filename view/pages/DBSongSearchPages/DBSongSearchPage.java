@@ -1,11 +1,14 @@
-package view.pages;
+package view.pages.DBSongSearchPages;
 
 import view.ScannerCLI;
+import view.pages.DBOptions;
+import view.pages.LandingPage;
+import view.pages.Page;
 
 public class DBSongSearchPage extends Page {
     private final ScannerCLI scanner;
 
-    DBSongSearchPage(ScannerCLI scanner){
+    public DBSongSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -28,7 +31,7 @@ public class DBSongSearchPage extends Page {
         if (checkQuit(str)){
 
             if((str).equals("1")){
-                
+
                 scanner.setPage(new DBSongTitleSearchPage(scanner));
 
             }

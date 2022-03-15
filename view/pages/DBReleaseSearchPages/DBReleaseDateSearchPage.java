@@ -1,21 +1,22 @@
-package view.pages;
+package view.pages.DBReleaseSearchPages;
 
-import model.searches.DBGUIDSearch;
+import model.searches.DBReleaseDateSearch;
 import view.ScannerCLI;
-import view.commands.DBArtistSearchCommand;
+import view.commands.DBReleaseSearchCommand;
+import view.pages.LandingPage;
+import view.pages.Page;
 
-public class DBArtistGUIDSearchPage extends Page {
+public class DBReleaseDateSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    DBArtistGUIDSearchPage(ScannerCLI scanner){
+    public DBReleaseDateSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
-    
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the GUID of the artist you want to search for.");
+        System.out.println("Please enter the release date that you wish to search for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -25,9 +26,9 @@ public class DBArtistGUIDSearchPage extends Page {
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            DBArtistSearchCommand search = new DBArtistSearchCommand();
-            DBGUIDSearch artistSearch = new DBGUIDSearch();
-            search.execute(str, artistSearch);
+            DBReleaseDateSearch releaseSearch = new DBReleaseDateSearch();
+            DBReleaseSearchCommand search = new DBReleaseSearchCommand();
+            search.execute(str, releaseSearch);
         }
     }
 
@@ -38,8 +39,7 @@ public class DBArtistGUIDSearchPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new DBOptions(scanner));
+        scanner.setPage(new DBReleaseSearchPage(scanner));
     }
-    
-
 }
+
