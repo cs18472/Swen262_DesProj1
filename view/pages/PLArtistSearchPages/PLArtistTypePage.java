@@ -1,16 +1,15 @@
 package view.pages.PLArtistSearchPages;
 
-import model.searches.PLArtistAlphabeticalSearch;
+import model.searches.PLArtistTypeSearch;
 import view.ScannerCLI;
-import view.commands.PLArtistAlphaSearchCommand;
+import view.commands.PLArtistSearchCommand;
 import view.pages.LandingPage;
-import view.pages.PLSearchDirectoryPage;
 import view.pages.Page;
 
-public class PLArtistGUIDPage extends Page{
+public class PLArtistTypePage extends Page{
     private final ScannerCLI scanner;
 
-    public PLArtistGUIDPage(ScannerCLI scanner){
+    public PLArtistTypePage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -18,7 +17,7 @@ public class PLArtistGUIDPage extends Page{
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the artist GUID that you wish to search for.");
+        System.out.println("Please enter the genre or type of artist that you wish to search for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -28,8 +27,8 @@ public class PLArtistGUIDPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            PLArtistAlphaSearchCommand search = new PLArtistAlphaSearchCommand();
-            PLArtistAlphabeticalSearch artistSearch = new PLArtistAlphabeticalSearch();
+            PLArtistSearchCommand search = new PLArtistSearchCommand();
+            PLArtistTypeSearch artistSearch = new PLArtistTypeSearch();
             search.execute(scanner.PL, str, artistSearch);
         }
     }
@@ -41,7 +40,7 @@ public class PLArtistGUIDPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new PLSearchDirectoryPage(scanner));
+        scanner.setPage(new PLArtistSearchPage(scanner));
     }
     
 }

@@ -6,14 +6,14 @@ import model.Library;
 import model.LibraryElement;
 import model.Searcher;
 
-public class PLArtistAlphaSearchCommand implements PLSearchCommand {
+public class PLArtistSearchCommand implements PLSearchCommand {
     
     @Override
     public void execute(Library PL, String input, Searcher searcher) {
-        List<LibraryElement> searchResult = (PL.search(1, input, searcher));
+        List<LibraryElement> searchResult = (PL.search(3, input, searcher));
         if(searchResult != null){
             System.out.println("\n");
-            for (LibraryElement e : (PL.search(1, input, searcher))){
+            for (LibraryElement e : (PL.search(3, input, searcher))){
                     System.out.println(e.toString());
             }
         }
