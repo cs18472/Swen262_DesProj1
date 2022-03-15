@@ -1,15 +1,15 @@
 package view.pages.PLReleasePages;
 
-import model.searches.PLReleaseArtistGUIDSearch;
+import model.searches.PLReleaseDurMinSearch;
 import view.ScannerCLI;
 import view.commands.PLReleaseSearchCommand;
 import view.pages.LandingPage;
 import view.pages.Page;
 
-public class PLReleaseArtistGUIDSearchPage extends Page{
+public class PLReleaseDurMinSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    public PLReleaseArtistGUIDSearchPage(ScannerCLI scanner){
+    public PLReleaseDurMinSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -17,7 +17,7 @@ public class PLReleaseArtistGUIDSearchPage extends Page{
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the GUID of the artist whos releases you are searching for.");
+        System.out.println("Enter anything to see releases sorted by minimum total song duration.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -28,7 +28,7 @@ public class PLReleaseArtistGUIDSearchPage extends Page{
 
         if (checkQuit(str)){
             PLReleaseSearchCommand search = new PLReleaseSearchCommand();
-            PLReleaseArtistGUIDSearch releaseSearch = new PLReleaseArtistGUIDSearch();
+            PLReleaseDurMinSearch releaseSearch = new PLReleaseDurMinSearch();
             search.execute(scanner.PL, str, releaseSearch);
         }
     }
@@ -41,7 +41,5 @@ public class PLReleaseArtistGUIDSearchPage extends Page{
     @Override
     public void back() {
         scanner.setPage(new PLReleaseSearchPage(scanner));
-    }
-    
+    }   
 }
-

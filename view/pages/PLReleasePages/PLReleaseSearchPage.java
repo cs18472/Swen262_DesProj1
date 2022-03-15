@@ -22,6 +22,8 @@ public class PLReleaseSearchPage extends Page{
         System.out.println("Press '4' to search for releases by the name of a song.");
         System.out.println("Press '5' to search for releases by the GUID of a song.");
         System.out.println("Press '6' to search for releases by release date.");
+        System.out.println("Press '7' to search by release songs minimum total duration.");
+        System.out.println("Press '8' to search by release songs maximum total duration.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -49,6 +51,12 @@ public class PLReleaseSearchPage extends Page{
             }
             else if((str).equals("6")){
                 scanner.setPage(new PLReleaseDateSearchPage(scanner));
+            }
+            else if((str).equals("7")){
+                scanner.setPage(new PLReleaseDurMinSearchPage(scanner));
+            }
+            else if((str).equals("8")){
+                scanner.setPage(new PLReleaseDurMaxSearchPage(scanner));
             }
             else{
                 error();

@@ -28,8 +28,8 @@ public class PLReleaseArtistNameSearchPage extends Page{
 
         if (checkQuit(str)){
             PLReleaseSearchCommand search = new PLReleaseSearchCommand();
-            PLReleaseArtistNameSearch artistSearch = new PLReleaseArtistNameSearch();
-            search.execute(scanner.PL, str, artistSearch);
+            PLReleaseArtistNameSearch releaseSearch = new PLReleaseArtistNameSearch();
+            search.execute(scanner.PL, str, releaseSearch);
         }
     }
 

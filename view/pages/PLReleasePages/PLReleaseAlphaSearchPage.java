@@ -28,8 +28,8 @@ public class PLReleaseAlphaSearchPage extends Page{
 
         if (checkQuit(str)){
             PLArtistSearchCommand search = new PLArtistSearchCommand();
-            PLArtistAlphabeticalSearch artistSearch = new PLArtistAlphabeticalSearch();
-            search.execute(scanner.PL, str, artistSearch);
+            PLArtistAlphabeticalSearch releaseSearch = new PLArtistAlphabeticalSearch();
+            search.execute(scanner.PL, str, releaseSearch);
         }
     }
 

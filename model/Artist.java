@@ -30,7 +30,7 @@ public class Artist implements LibraryElement{
 
     @Override
     public String toString() {
-        return "Artist: " + name + " GUID: " + guid + "Type: " + type + "Total Duration: " + totDuration;
+        return "Artist: " + name + " GUID: " + guid + " Type: " + type + " Total Duration: " + totDuration;
     }
     public String getGuid() {
         return guid;

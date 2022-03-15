@@ -30,7 +30,7 @@ public class Release implements LibraryElement{
 
     @Override
     public String toString() {
-        return "Release: " + title + " GUID: " + guid + " Date: " + issueDate  + "Medium: " + medium + " Total Duration: " + totDuration;
+        return "Release: " + title + " GUID: " + guid + " Date: " + issueDate  + " Medium: " + medium + " Total Duration: " + totDuration;
     }
 
     public void addArtist(String name) {

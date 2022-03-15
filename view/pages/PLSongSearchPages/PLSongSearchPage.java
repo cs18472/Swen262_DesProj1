@@ -58,6 +58,9 @@ public class PLSongSearchPage extends Page{
             else if((str).equals("8")){
                 scanner.setPage(new PLSongDurationGreaterPage(scanner));
             }
+            else{
+                error();
+            }
         }
     }
 
