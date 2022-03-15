@@ -31,7 +31,7 @@ public class PersonalLibraryOptions extends Page {
                 scanner.setPage(new PLSearchDirectoryPage(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new PLAddPage(scanner));
+                scanner.setPage(new PLBrowsePage(scanner));
             }
             else if((str).equals("3")){
                 scanner.setPage(new PLAddPage(scanner));
