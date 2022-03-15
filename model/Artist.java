@@ -24,7 +24,6 @@ public class Artist implements LibraryElement{
 
     @Override
     public List<LibraryElement> search(int type, String input, Searcher searcher) {
-        // TODO Auto-generated method stub
         return null;
     }
 
