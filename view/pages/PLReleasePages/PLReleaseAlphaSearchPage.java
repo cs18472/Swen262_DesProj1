@@ -2,7 +2,7 @@ package view.pages.PLReleasePages;
 
 import model.searches.PLArtistAlphabeticalSearch;
 import view.ScannerCLI;
-import view.commands.PLArtistAlphaSearchCommand;
+import view.commands.PLArtistSearchCommand;
 import view.pages.LandingPage;
 import view.pages.PLSearchDirectoryPage;
 import view.pages.Page;
@@ -28,7 +28,7 @@ public class PLReleaseAlphaSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            PLArtistAlphaSearchCommand search = new PLArtistAlphaSearchCommand();
+            PLArtistSearchCommand search = new PLArtistSearchCommand();
             PLArtistAlphabeticalSearch artistSearch = new PLArtistAlphabeticalSearch();
             search.execute(scanner.PL, str, artistSearch);
         }

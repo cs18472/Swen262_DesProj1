@@ -34,7 +34,10 @@ public class PLArtistSearchPage extends Page{
                 scanner.setPage(new PLArtistAlphaPage(scanner));
             }
             else if((str).equals("2")){
-                //
+                scanner.setPage(new PLArtistNamePage(scanner));
+            }
+            else if((str).equals("3")){
+                scanner.setPage(new PLArtistTypePage(scanner));
             }
         }
     }

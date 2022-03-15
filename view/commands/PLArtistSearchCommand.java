@@ -6,7 +6,7 @@ import model.Library;
 import model.LibraryElement;
 import model.Searcher;
 
-public class PLArtistAlphaSearchCommand implements PLSearchCommand {
+public class PLArtistSearchCommand implements PLSearchCommand {
     
     @Override
     public void execute(Library PL, String input, Searcher searcher) {
