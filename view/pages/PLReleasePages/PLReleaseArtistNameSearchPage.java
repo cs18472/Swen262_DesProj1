@@ -1,15 +1,15 @@
 package view.pages.PLReleasePages;
 
-import model.searches.PLArtistAlphabeticalSearch;
+import model.searches.PLReleaseArtistNameSearch;
 import view.ScannerCLI;
-import view.commands.PLArtistSearchCommand;
+import view.commands.PLReleaseSearchCommand;
 import view.pages.LandingPage;
 import view.pages.Page;
 
-public class PLReleaseAlphaSearchPage extends Page{
+public class PLReleaseArtistNameSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    public PLReleaseAlphaSearchPage(ScannerCLI scanner){
+    public PLReleaseArtistNameSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -17,7 +17,7 @@ public class PLReleaseAlphaSearchPage extends Page{
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Enter anything to see artists alphabetically.");
+        System.out.println("Please enter the name of the artist whos releases you are searching for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -27,8 +27,8 @@ public class PLReleaseAlphaSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            PLArtistSearchCommand search = new PLArtistSearchCommand();
-            PLArtistAlphabeticalSearch artistSearch = new PLArtistAlphabeticalSearch();
+            PLReleaseSearchCommand search = new PLReleaseSearchCommand();
+            PLReleaseArtistNameSearch artistSearch = new PLReleaseArtistNameSearch();
             search.execute(scanner.PL, str, artistSearch);
         }
     }

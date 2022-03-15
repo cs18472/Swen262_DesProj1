@@ -1,11 +1,15 @@
-package view.pages;
+package view.pages.PLReleasePages;
 
+import model.searches.PLReleaseDateSearch;
 import view.ScannerCLI;
+import view.commands.PLReleaseSearchCommand;
+import view.pages.LandingPage;
+import view.pages.Page;
 
-public class PLReleaseSearchPage extends Page{
+public class PLReleaseDateSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    PLReleaseSearchPage(ScannerCLI scanner){
+    public PLReleaseDateSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -13,7 +17,7 @@ public class PLReleaseSearchPage extends Page{
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the title of the release you wish to search for.");
+        System.out.println("Please enter the release date you are searching for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -23,7 +27,9 @@ public class PLReleaseSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            //do the search
+            PLReleaseSearchCommand search = new PLReleaseSearchCommand();
+            PLReleaseDateSearch artistSearch = new PLReleaseDateSearch();
+            search.execute(scanner.PL, str, artistSearch);
         }
     }
 
@@ -34,7 +40,8 @@ public class PLReleaseSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new PersonalLibraryOptions(scanner));
+        scanner.setPage(new PLReleaseSearchPage(scanner));
     }
     
 }
+
