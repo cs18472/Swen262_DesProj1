@@ -44,6 +44,7 @@ public class PLReleaseExplorePage extends Page {
         PLSongReleaseGUIDSearch songSearch = new PLSongReleaseGUIDSearch();
         search.execute(scanner.PL, str, songSearch);
     }
+    
     @Override
     public void quit() {
         scanner.setPage(new LandingPage(scanner));
