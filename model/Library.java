@@ -6,6 +6,7 @@ import java.util.List;
 import model.searches.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,6 +31,14 @@ public class Library implements LibraryElement{
         this.songs = new ArrayList<>();
         this.releases = new ArrayList<>();
         this.artists = new ArrayList<>();
+    }
+
+    public void initalize() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(librarytxt));
+        String line;
+        while((line = reader.readLine()) != null) {
+            add(line);
+        }
     }
 
     public void add(String guid) throws IOException{
@@ -108,11 +117,9 @@ public class Library implements LibraryElement{
             FileReader reader = new FileReader(librarytxt);
             BufferedReader bufferedReader = new BufferedReader(reader);
             List<String> library = new ArrayList<>();
-            List<String> test = new ArrayList<>();
             String line;
             while((line = bufferedReader.readLine()) != null) {
                 if(!line.equals(guid)) library.add(line);
-                test.add(line);
             }
 
             PrintWriter pWriter = new PrintWriter(librarytxt);
@@ -153,7 +160,6 @@ public class Library implements LibraryElement{
                     line = "";
                     while((line = bufferedReader.readLine()) != null) {
                         if(!line.equals(artistGuid)) library.add(line);
-                        test.add(line);
                     }
 
                     pWriter = new PrintWriter(librarytxt);
