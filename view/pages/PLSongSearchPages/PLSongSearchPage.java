@@ -47,10 +47,10 @@ public class PLSongSearchPage extends Page{
                 scanner.setPage(new PLSongArtistGUIDPage(scanner));
             }
             else if((str).equals("5")){
-                //
+                scanner.setPage(new PLSongReleaseTitlePage(scanner));
             }
             else if((str).equals("6")){
-                //
+                scanner.setPage(new PLSongReleaseGUIDPage(scanner));
             }
             else if((str).equals("7")){
                 scanner.setPage(new PLSongDurationLessPage(scanner));
