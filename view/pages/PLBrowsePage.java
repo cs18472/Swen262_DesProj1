@@ -53,6 +53,6 @@ public class PLBrowsePage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new PLSearchDirectoryPage(scanner));
+        scanner.setPage(new PersonalLibraryOptions(scanner));
     }
 }
