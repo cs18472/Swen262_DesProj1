@@ -22,7 +22,7 @@ public class Song implements LibraryElement{
 
     @Override
     public String toString() {
-        return "Song: " + title + " GUID: " + guid;
+        return "Song: " + title + " GUID: " + guid + " Duration: " + duration;
     }
     public String getArtist() {
         return artist;

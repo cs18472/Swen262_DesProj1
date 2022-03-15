@@ -13,6 +13,7 @@ public class Release implements LibraryElement{
     private String issueDate;
     private String medium;
     private List<LibraryElement> songs;
+    private int totDuration;
 
     public Release (String guid, String title, String artistGuid, String artist, String issueDate, String medium, List<LibraryElement> songs) {
         this.guid = guid;
@@ -22,11 +23,14 @@ public class Release implements LibraryElement{
         this.issueDate = issueDate;
         this.medium = medium;
         this.songs = songs;
+        for(LibraryElement song : songs){
+            totDuration = song.getDuration() + totDuration;
+        }
     }
 
     @Override
     public String toString() {
-        return "Release: " + title + " GUID: " + guid + " Artist: " + artist;
+        return "Release: " + title + " GUID: " + guid + " Date: " + issueDate  + "Medium: " + medium + " Total Duration: " + totDuration;
     }
 
     public void addArtist(String name) {
@@ -59,14 +63,16 @@ public class Release implements LibraryElement{
     public String getTitle() {
         return title;
     }
+    @Override
+    public int getDuration() {
+        return totDuration;
+    }
 
     //Unused Methods
     @Override
     public void addName(String name) {}
     @Override
     public String getName() {return null;}
-    @Override
-    public int getDuration() {return 0;}
     @Override
     public String getType() {return null;}
     @Override
