@@ -73,4 +73,6 @@ public class Release implements LibraryElement{
     public List<LibraryElement> search(int type, String input, Searcher searcher) {return null;}
     @Override
     public List<LibraryElement> getArtistWork(String guid) {return null;}
+    @Override
+    public List<LibraryElement> getArtists() {return null;}
 }

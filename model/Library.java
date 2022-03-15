@@ -9,9 +9,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -131,6 +128,7 @@ public class Library implements LibraryElement{
             BufferedWriter bWriter = new BufferedWriter(new FileWriter(librarytxt));
             bWriter.write(libraryStr);
             bWriter.close();
+            bufferedReader.close();
             
             //Search if any other songs are from the same artist
             for(LibraryElement song : songs){
@@ -171,6 +169,7 @@ public class Library implements LibraryElement{
                     bWriter = new BufferedWriter(new FileWriter(librarytxt));
                     bWriter.write(libraryStr);
                     bWriter.close();
+                    bufferedReader.close();
                     return;
                 }
             }
@@ -236,7 +235,12 @@ public class Library implements LibraryElement{
         if(found.size() == 0) return null;
         return found;
     }
-  
+
+    @Override
+    public List<LibraryElement> getArtists() {
+        return artists;
+    }
+
     //Unused Methods
     @Override
     public String getGuid() {return null;}

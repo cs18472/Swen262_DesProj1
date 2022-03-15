@@ -60,4 +60,6 @@ public class Artist implements LibraryElement{
     public String getIssueDate() {return null;}
     @Override
     public List<LibraryElement> getArtistWork(String guid) {return null;}
+    @Override
+    public List<LibraryElement> getArtists() {return null;}
 }
