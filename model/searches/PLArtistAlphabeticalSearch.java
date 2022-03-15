@@ -15,7 +15,7 @@ public class PLArtistAlphabeticalSearch implements Searcher{
             // Find the minimum element in unsorted array
             int min_idx = i;
             for (int j = i+1; j < n; j++){
-                int compare = elements.get(j).getName().compareTo(elements.get(min_idx).getTitle());
+                int compare = elements.get(j).getName().compareTo(elements.get(min_idx).getName());
                 if (compare < 0){
                     min_idx = j;
                 }
