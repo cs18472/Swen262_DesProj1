@@ -9,7 +9,7 @@ import view.pages.Page;
 public class DBArtistSearchPage extends Page {
     private final ScannerCLI scanner;
 
-    DBArtistSearchPage(ScannerCLI scanner){
+    public DBArtistSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 

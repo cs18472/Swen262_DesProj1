@@ -1,7 +1,7 @@
 package view.pages;
 
 import view.ScannerCLI;
-import view.pages.DBArtistSearchPages.DBArtistNameSearchPage;
+import view.pages.DBArtistSearchPages.DBArtistSearchPage;
 import view.pages.DBReleaseSearchPages.DBReleaseSearchPage;
 import view.pages.DBSongSearchPages.DBSongSearchPage;
 
@@ -32,7 +32,7 @@ public class DBOptionsPage extends Page {
                 scanner.setPage(new DBSongSearchPage(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new DBArtistNameSearchPage(scanner));
+                scanner.setPage(new DBArtistSearchPage(scanner));
             }
             else if ((str).equals("3")){
                 scanner.setPage(new DBReleaseSearchPage(scanner));
