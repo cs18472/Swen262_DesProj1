@@ -54,6 +54,6 @@ public class PLBrowsePage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new PersonalLibraryOptions(scanner));
+        scanner.setPage(new PersonalLibraryOptionsPage(scanner));
     }
 }

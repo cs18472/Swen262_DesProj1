@@ -3,7 +3,7 @@ package view.pages.PLReleasePages;
 import view.ScannerCLI;
 import view.pages.LandingPage;
 import view.pages.Page;
-import view.pages.PersonalLibraryOptions;
+import view.pages.PersonalLibraryOptionsPage;
 
 public class PLReleaseSearchPage extends Page{
     private final ScannerCLI scanner;
@@ -71,7 +71,7 @@ public class PLReleaseSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new PersonalLibraryOptions(scanner));
+        scanner.setPage(new PersonalLibraryOptionsPage(scanner));
     }
     
 }

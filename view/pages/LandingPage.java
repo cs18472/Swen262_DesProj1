@@ -25,7 +25,7 @@ public class LandingPage extends Page {
         if (checkQuit(str)){
 
             if((str).equals("1")){
-                scanner.setPage(new PersonalLibraryOptions(scanner));
+                scanner.setPage(new PersonalLibraryOptionsPage(scanner));
             }
             else if((str).equals("2")){
                 scanner.setPage(new DBOptionsPage(scanner));

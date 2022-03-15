@@ -2,11 +2,11 @@ package view.pages;
 
 import view.ScannerCLI;
 
-public class PersonalLibraryOptions extends Page {
+public class PersonalLibraryOptionsPage extends Page {
 
     private final ScannerCLI scanner;
     
-    public PersonalLibraryOptions(ScannerCLI scanner){
+    public PersonalLibraryOptionsPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
