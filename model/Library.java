@@ -38,6 +38,7 @@ public class Library implements LibraryElement{
         while((line = reader.readLine()) != null) {
             add(line);
         }
+        reader.close();
     }
 
     public void add(String guid) throws IOException{

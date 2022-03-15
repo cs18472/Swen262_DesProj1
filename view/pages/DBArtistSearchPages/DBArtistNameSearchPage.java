@@ -3,7 +3,7 @@ package view.pages.DBArtistSearchPages;
 import model.searches.DBArtistNameSearch;
 import view.ScannerCLI;
 import view.commands.DBArtistSearchCommand;
-import view.pages.DBOptions;
+import view.pages.DBOptionsPage;
 import view.pages.LandingPage;
 import view.pages.Page;
 
@@ -41,7 +41,7 @@ public class DBArtistNameSearchPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new DBOptions(scanner));
+        scanner.setPage(new DBOptionsPage(scanner));
     }
     
 

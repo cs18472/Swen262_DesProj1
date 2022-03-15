@@ -5,11 +5,11 @@ import view.pages.DBArtistSearchPages.DBArtistNameSearchPage;
 import view.pages.DBReleaseSearchPages.DBReleaseSearchPage;
 import view.pages.DBSongSearchPages.DBSongSearchPage;
 
-public class DBOptions extends Page {
+public class DBOptionsPage extends Page {
 
     private final ScannerCLI scanner;
 
-    public DBOptions(ScannerCLI scanner){
+    public DBOptionsPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
