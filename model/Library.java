@@ -3,8 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.searches.DBGUIDSearch;
-import model.searches.PLSongAlphabeticalSearch;
+import model.searches.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -172,6 +171,7 @@ public class Library implements LibraryElement{
                     bWriter = new BufferedWriter(new FileWriter(librarytxt));
                     bWriter.write(libraryStr);
                     bWriter.close();
+                    return;
                 }
             }
         }
@@ -215,6 +215,26 @@ public class Library implements LibraryElement{
             System.out.println("Error: Incorrect type specified");
             return null;
         }
+    }
+
+    //Gets all the work from an artist based on their GUID
+    @Override
+    public List<LibraryElement> getArtistWork(String guid){
+        List<LibraryElement> found = new ArrayList<>();
+        List<LibraryElement> songResult = this.search(1, guid, new PLSongArtistGUIDSearch());
+        if(songResult != null){
+            for(LibraryElement song : this.search(1, guid, new PLSongArtistGUIDSearch())){
+                found.add(song);
+            }
+        }
+        List<LibraryElement> releaseResult = this.search(2, guid, new PLReleaseArtistGUIDSearch());
+        if(releaseResult != null){
+            for(LibraryElement release : releaseResult){
+                found.add(release);
+            }
+        }
+        if(found.size() == 0) return null;
+        return found;
     }
   
     //Unused Methods
@@ -281,6 +301,8 @@ public class Library implements LibraryElement{
             for(LibraryElement element : pb.artists){
                 System.out.println(element);
             }
+            System.out.println("Reached");
+            System.out.println(pb.getArtistWork("925c7673-0e85-410f-b7e4-d9705a7aa619"));
             
         }
         catch(Exception E){

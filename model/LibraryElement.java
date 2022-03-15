@@ -18,4 +18,5 @@ public interface LibraryElement {
     public String getName();
     public int getDuration();
     public String getType();
+    public List<LibraryElement> getArtistWork(String guid);
 }
