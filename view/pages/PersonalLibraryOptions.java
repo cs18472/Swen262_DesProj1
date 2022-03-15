@@ -27,13 +27,13 @@ public class PersonalLibraryOptions extends Page {
     public void interpretInput(String str) {
         if (checkQuit(str)){
             if((str).equals("1")){
-                scanner.setPage(new PLSongSearchPage(scanner));
+                scanner.setPage(new PLSearchDirectoryPage(scanner));
             }
             else if((str).equals("2")){
-                scanner.setPage(new PLArtistSearchPage(scanner));
+                scanner.setPage(new PLAddPage(scanner));
             }
             else if ((str).equals("3")){
-                scanner.setPage(new PLReleaseSearchPage(scanner));
+                scanner.setPage(new PLRemovePage(scanner));
             }        
             else{
                 error();

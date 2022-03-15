@@ -1,11 +1,15 @@
-package view.pages;
+package view.pages.PLArtistSearchPages;
+
 
 import view.ScannerCLI;
+import view.pages.LandingPage;
+import view.pages.PLSearchDirectoryPage;
+import view.pages.Page;
 
 public class PLArtistSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    PLArtistSearchPage(ScannerCLI scanner){
+    public PLArtistSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
@@ -13,7 +17,9 @@ public class PLArtistSearchPage extends Page{
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the name of the artist you wish to search for.");
+        System.out.println("Press '1' to list all artists in your library alphabetically.");
+        System.out.println("Press '2' to search for an artist by their name.");
+        System.out.println("Press '3' to search for an artist genre or type.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -23,7 +29,13 @@ public class PLArtistSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            //do the search
+
+            if((str).equals("1")){
+                scanner.setPage(new PLArtistAlphaPage(scanner));
+            }
+            else if((str).equals("2")){
+                //
+            }
         }
     }
 
@@ -34,7 +46,7 @@ public class PLArtistSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new PersonalLibraryOptions(scanner));
+        scanner.setPage(new PLSearchDirectoryPage(scanner));
     }
     
 }

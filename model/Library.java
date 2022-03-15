@@ -30,7 +30,7 @@ public class Library implements LibraryElement{
     private List<LibraryElement> artists = new ArrayList<>();
     private File librarytxt = new File(LIBRARY_PATH);
 
-    Library(){
+    public Library(){
         this.songs = new ArrayList<>();
         this.releases = new ArrayList<>();
         this.artists = new ArrayList<>();
@@ -69,7 +69,7 @@ public class Library implements LibraryElement{
             writer.flush();
             writer.close();
 
-            System.out.println("Added song successfully.");
+            System.out.println("Added successfully.");
             //Artist
             String artistGuid = found.getArtistGuid();
             for(LibraryElement element2 : artists){

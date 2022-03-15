@@ -43,6 +43,6 @@ public class PLRemovePage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new PLSearchDirectory(scanner));
+        scanner.setPage(new PLSearchDirectoryPage(scanner));
     }
 }
