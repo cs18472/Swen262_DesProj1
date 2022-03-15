@@ -50,6 +50,6 @@ public class PLSearchDirectoryPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new LandingPage(scanner));
+        scanner.setPage(new PersonalLibraryOptionsPage(scanner));
     }
 }
