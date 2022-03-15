@@ -191,6 +191,7 @@ public class Library implements LibraryElement{
     public void addArtist(String guid) {
         List<LibraryElement> result = Database.search(3, guid, new DBGUIDSearch());
         if(result != null){
+            
             artists.add(result.get(0));
 
             
