@@ -19,7 +19,6 @@ public class DBOptions extends Page {
         System.out.println("Enter '1' to search for a song.");
         System.out.println("Enter '2' to search for an artist.");
         System.out.println("Enter '3' to search for a release.");
-        System.out.println("Enter '4' to search for releases and songs by title.");
         System.out.println("Enter 'B' to return to the previous page.");
         System.out.println("Enter 'Q' to return to the landing page.");
         System.out.println("------------------------------------------------");
@@ -37,10 +36,7 @@ public class DBOptions extends Page {
             }
             else if ((str).equals("3")){
                 scanner.setPage(new DBReleaseSearchPage(scanner));
-            }
-            else if((str).equals("4")){
-                //
-            }        
+            }      
             else{
                 error();
             }
