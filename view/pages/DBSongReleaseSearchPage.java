@@ -42,7 +42,7 @@ public class DBSongReleaseSearchPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new DBOptions(scanner));
+        scanner.setPage(new DBOptionsPage(scanner));
     }
 
 }

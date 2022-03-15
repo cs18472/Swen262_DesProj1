@@ -1,9 +1,12 @@
-package view.pages;
+package view.pages.BrowsePages;
 
 import java.util.List;
 
 import model.LibraryElement;
 import view.ScannerCLI;
+import view.pages.LandingPage;
+import view.pages.PLBrowsePage;
+import view.pages.Page;
 
 
 public class PLArtistExplorePage extends Page {

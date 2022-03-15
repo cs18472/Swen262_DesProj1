@@ -3,7 +3,7 @@ package view.pages.DBSongSearchPages;
 import model.searches.DBTitleSearch;
 import view.ScannerCLI;
 import view.commands.DBSongSearchCommand;
-import view.pages.DBOptions;
+import view.pages.DBOptionsPage;
 import view.pages.LandingPage;
 import view.pages.Page;
 
@@ -40,6 +40,6 @@ public class DBSongTitleSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new DBOptions(scanner));
+        scanner.setPage(new DBOptionsPage(scanner));
     }
 }

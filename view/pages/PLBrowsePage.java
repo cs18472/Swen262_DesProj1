@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.LibraryElement;
 import view.ScannerCLI;
+import view.pages.BrowsePages.PLArtistExplorePage;
 
 
 public class PLBrowsePage extends Page {
@@ -53,6 +54,6 @@ public class PLBrowsePage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new PersonalLibraryOptions(scanner));
+        scanner.setPage(new PersonalLibraryOptionsPage(scanner));
     }
 }

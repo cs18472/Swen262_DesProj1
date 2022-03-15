@@ -1,7 +1,7 @@
 package view.pages.DBArtistSearchPages;
 
 import view.ScannerCLI;
-import view.pages.DBOptions;
+import view.pages.DBOptionsPage;
 import view.pages.LandingPage;
 import view.pages.Page;
 
@@ -49,6 +49,6 @@ public class DBArtistSearchPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new DBOptions(scanner));
+        scanner.setPage(new DBOptionsPage(scanner));
     }
 }
