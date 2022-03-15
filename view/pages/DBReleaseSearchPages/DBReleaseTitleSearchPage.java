@@ -1,22 +1,22 @@
-package view.pages.DBSongSearchPages;
+package view.pages.DBReleaseSearchPages;
 
-import model.searches.DBGUIDSearch;
+import model.searches.DBTitleSearch;
 import view.ScannerCLI;
-import view.commands.DBSongSearchCommand;
+import view.commands.DBReleaseSearchCommand;
 import view.pages.LandingPage;
 import view.pages.Page;
 
-public class DBSongGUIDSearchPage extends Page{
+public class DBReleaseTitleSearchPage extends Page{
     private final ScannerCLI scanner;
 
-    DBSongGUIDSearchPage(ScannerCLI scanner){
+    DBReleaseTitleSearchPage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the GUID of the song that you wish to search for.");
+        System.out.println("Please enter the release title that you wish to search for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
@@ -26,9 +26,9 @@ public class DBSongGUIDSearchPage extends Page{
     public void interpretInput(String str) {
 
         if (checkQuit(str)){
-            DBGUIDSearch GUIDSearch = new DBGUIDSearch();
-            DBSongSearchCommand search = new DBSongSearchCommand();
-            search.execute(str, GUIDSearch);
+            DBTitleSearch releaseSearch = new DBTitleSearch();
+            DBReleaseSearchCommand search = new DBReleaseSearchCommand();
+            search.execute(str, releaseSearch);
         }
     }
 
@@ -39,6 +39,7 @@ public class DBSongGUIDSearchPage extends Page{
 
     @Override
     public void back() {
-        scanner.setPage(new DBSongSearchPage(scanner));
+        scanner.setPage(new DBReleaseSearchPage(scanner));
     }
 }
+
