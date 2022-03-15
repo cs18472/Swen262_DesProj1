@@ -35,6 +35,6 @@ public class PLAddPage extends Page {
 
     @Override
     public void back() {
-        scanner.setPage(new PLSearchDirectoryPage(scanner));
+        scanner.setPage(new PersonalLibraryOptionsPage(scanner));
     }
 }
