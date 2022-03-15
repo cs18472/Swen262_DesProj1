@@ -12,13 +12,20 @@ public class PLReleaseSongNameSearch implements Searcher{
     public List<LibraryElement> doSearch(List<LibraryElement> elements, String input) {
         List<LibraryElement> result = new ArrayList<>();
         String name;
-        String find = input.toLowerCase();
+        boolean found = false;
         // One by one move boundary of unsorted subarray
         for (LibraryElement element: elements) {
-            name = element.getTitle().toLowerCase();
-            if(name.contains(find)){
-                result.add(element);
+            List<LibraryElement> songs = element.getSongs();
+            for (LibraryElement song : songs) {
+                name = song.getTitle();
+                if(name.contains(input)){
+                    found = true;
+                }
             }
+            if(found == true){
+                 result.add(element);
+            }
+            found = false;
         }
         if(result.size() == 0) return null;
         return result;
