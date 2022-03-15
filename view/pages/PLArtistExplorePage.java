@@ -3,19 +3,19 @@ package view.pages;
 import view.ScannerCLI;
 
 
-public class PLBrowsePage extends Page {
+public class PLArtistExplorePage extends Page {
     private final ScannerCLI scanner;
 
-    public PLBrowsePage(ScannerCLI scanner){
+    public PLArtistExplorePage(ScannerCLI scanner){
         this.scanner = scanner;
     }
 
     @Override
     public void menu() {
-        this.interpretInput("1");
+        this.interpretInput("2");
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter '1' to explore an artist.");
-        System.out.println("Please enter '2' to view your artists again.");
+        System.out.println("Please enter '1' to explore a release.");
+        System.out.println("Please enter '2' to view the artist's songs and releases again.");
         System.out.println("Enter 'B' to return to the previous page.");
         System.out.println("Enter 'Q' to return to the landing page.");
         System.out.println("------------------------------------------------");

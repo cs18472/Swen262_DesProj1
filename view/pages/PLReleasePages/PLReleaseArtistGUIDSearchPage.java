@@ -17,7 +17,7 @@ public class PLReleaseArtistGUIDSearchPage extends Page{
     @Override
     public void menu() {
         System.out.println("------------------------------------------------");
-        System.out.println("Please enter the GUID of the artist whos releases you are searching for.");
+        System.out.println("Please enter the GUID of the artist whose releases you are searching for.");
         System.out.println("Press 'B' to return to the previous page.");
         System.out.println("Press 'Q' to Quit.");
         System.out.println("------------------------------------------------");
